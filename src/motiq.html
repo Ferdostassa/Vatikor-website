@@ -1,0 +1,1095 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>MotIQ, Intelligent Motor Health & Power Monitoring · Vatikor</title>
+  <meta name="description" content="MotIQ fuses electrical, thermal, and operational intelligence into one industrial device, so hidden motor faults surface weeks before failure." />
+  <meta name="color-scheme" content="light" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./css/main.css" />
+  <link rel="stylesheet" href="./css/components.css" />
+  <link rel="stylesheet" href="./css/sections.css" />
+  <link rel="stylesheet" href="./css/eht.css" />
+</head>
+<body>
+
+  <!-- Loader -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__mark"></div>
+    <div class="loader__progress"><div class="loader__progress-fill" id="loader-fill"></div></div>
+    <div class="loader__text" id="loader-text">Initialising · 0%</div>
+  </div>
+
+  <!-- Persistent 3D canvas & overlay layer -->
+  <canvas id="three-canvas" aria-hidden="true"></canvas>
+  <div id="overlays" aria-hidden="true"></div>
+
+  <!-- Nav -->
+  <header class="nav" id="nav">
+    <a href="./index.html" class="nav__brand" aria-label="Vatikor home">
+      <svg class="nav__brand-mark" viewBox="0 0 44 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="44" height="30" rx="6" fill="#3D6CB5"/><polyline points="6,15 12,15 15,8 19,22 23,10 27,18 30,15 38,15" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Vatikor</span>
+    </a>
+    <nav class="nav__links" id="nav-links" aria-label="Primary"></nav>
+    <a class="nav__cta" id="nav-cta" href="./contact.html">Contact Us</a>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero motiq-hero" id="hero" aria-labelledby="hero-h">
+      <div class="hero__grid-marks" aria-hidden="true">
+        <span class="hero__mark hero__mark--tl" data-hero-mark-tl>© MotIQ · Vatikor</span>
+        <span class="hero__mark hero__mark--tr" data-hero-mark-tr>Rev · 2026.01</span>
+        <span class="hero__mark hero__mark--bl" data-hero-mark-bl>Electrical · Thermal · Operational</span>
+        <span class="hero__mark hero__mark--br" data-hero-mark-br>Ontario · Canada</span>
+      </div>
+      <div class="hero__content">
+        <div class="container">
+          <div class="eht-page-title">
+            <span class="eht-page-title__eyebrow">MotIQ · Intelligent Motor Health Monitor</span>
+            <h1 class="eht-page-title__heading" id="hero-h">Monitor, detect, and <em class="motiq-hero__accent">prevent</em><br>equipment failure early.</h1>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-cue" aria-hidden="true">
+        <span>Scroll</span>
+        <span class="scroll-cue__line"></span>
+      </div>
+    </section>
+
+    <!-- MOTIQ BANNER + STATS -->
+    <section class="motiq-banner" aria-label="MotIQ in action">
+      <div class="motiq-banner__img-wrap">
+        <img src="./assets/motiq1.png" alt="MotIQ device mounted in panel" class="motiq-banner__img" loading="lazy" />
+        <div class="motiq-banner__fade-top" aria-hidden="true"></div>
+        <div class="motiq-banner__fade-bottom" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- MOTIQ STATS STRIP -->
+    <div class="motiq-stats-strip">
+      <div class="container motiq-stats-strip__inner">
+
+        <!-- Alarm Tiers -->
+        <div class="motiq-sstat">
+          <div class="motiq-sstat__icon motiq-sstat__icon--red">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M24 6 L42 38 H6 Z"/>
+              <line x1="24" y1="20" x2="24" y2="29"/>
+              <circle cx="24" cy="34" r="1.5" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+          <span class="motiq-sstat__num">2</span>
+          <span class="motiq-sstat__label">Alarm Tiers<br>Predictive + Active</span>
+        </div>
+
+        <div class="motiq-stats-strip__divider"></div>
+
+        <!-- Preventive Warnings -->
+        <div class="motiq-sstat">
+          <div class="motiq-sstat__icon motiq-sstat__icon--orange">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="24" cy="24" r="18"/>
+              <path d="M24 14 C24 14 18 20 18 27 A6 6 0 0 0 30 27 C30 20 24 14 24 14Z"/>
+              <line x1="24" y1="35" x2="24" y2="36"/>
+            </svg>
+          </div>
+          <span class="motiq-sstat__num">8+</span>
+          <span class="motiq-sstat__label">Preventive Warnings<br>Before Failure</span>
+        </div>
+
+        <div class="motiq-stats-strip__divider"></div>
+
+        <!-- Power Analyses -->
+        <div class="motiq-sstat">
+          <div class="motiq-sstat__icon motiq-sstat__icon--blue">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="4,32 10,32 15,14 21,40 27,22 33,36 38,26 44,26"/>
+              <line x1="4" y1="44" x2="44" y2="44"/>
+            </svg>
+          </div>
+          <span class="motiq-sstat__num">9</span>
+          <span class="motiq-sstat__label">Power Parameters<br>Continuously Analysed</span>
+        </div>
+
+        <div class="motiq-stats-strip__divider"></div>
+
+        <!-- Thermal Data Points -->
+        <div class="motiq-sstat">
+          <div class="motiq-sstat__icon motiq-sstat__icon--orange">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <!-- 4×4 grid representing thermal array pixels -->
+              <rect x="6"  y="6"  width="8" height="8" rx="1.5"/>
+              <rect x="16" y="6"  width="8" height="8" rx="1.5"/>
+              <rect x="26" y="6"  width="8" height="8" rx="1.5"/>
+              <rect x="36" y="6"  width="8" height="8" rx="1.5"/>
+              <rect x="6"  y="16" width="8" height="8" rx="1.5"/>
+              <rect x="16" y="16" width="8" height="8" rx="1.5" fill="currentColor" opacity="0.4"/>
+              <rect x="26" y="16" width="8" height="8" rx="1.5" fill="currentColor" opacity="0.7"/>
+              <rect x="36" y="16" width="8" height="8" rx="1.5"/>
+              <rect x="6"  y="26" width="8" height="8" rx="1.5"/>
+              <rect x="16" y="26" width="8" height="8" rx="1.5" fill="currentColor" opacity="0.7"/>
+              <rect x="26" y="26" width="8" height="8" rx="1.5" fill="currentColor"/>
+              <rect x="36" y="26" width="8" height="8" rx="1.5" fill="currentColor" opacity="0.4"/>
+              <rect x="6"  y="36" width="8" height="8" rx="1.5"/>
+              <rect x="16" y="36" width="8" height="8" rx="1.5"/>
+              <rect x="26" y="36" width="8" height="8" rx="1.5" fill="currentColor" opacity="0.4"/>
+              <rect x="36" y="36" width="8" height="8" rx="1.5"/>
+            </svg>
+          </div>
+          <span class="motiq-sstat__num">64</span>
+          <span class="motiq-sstat__label">Thermal Data Points<br>8×8 IR Array</span>
+        </div>
+
+        <div class="motiq-stats-strip__divider"></div>
+
+        <!-- Motor Control -->
+        <div class="motiq-sstat">
+          <div class="motiq-sstat__icon motiq-sstat__icon--green">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="24" cy="24" r="18"/>
+              <polygon points="20,16 20,32 34,24" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+          <span class="motiq-sstat__num">3</span>
+          <span class="motiq-sstat__label">Motor Control Modes<br>Start · Auto · Stop</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- WHY SELECT MOTIQ -->
+    <section class="eht-applications" id="why-motiq" aria-labelledby="why-motiq-h">
+      <div class="container">
+
+        <div class="eht-applications__header">
+          <span class="eyebrow" style="display:block;margin-bottom:var(--sp-3);">01b · Why MotIQ</span>
+          <h2 class="eht-applications__title" id="why-motiq-h">Why Select MotIQ</h2>
+          <p class="eht-applications__sub">Six reasons facilities rely on MotIQ to protect their critical motor assets.</p>
+        </div>
+
+        <div class="eht-rotator" id="motiq-rotator" aria-live="polite">
+
+          <!-- Prev / Next arrows -->
+          <button class="eht-rotator__arrow eht-rotator__arrow--prev" id="motiq-rotator-prev" aria-label="Previous slide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="eht-rotator__arrow eht-rotator__arrow--next" id="motiq-rotator-next" aria-label="Next slide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+
+          <div class="eht-rotator__track">
+
+            <!-- Slide 1 — Cost savings & asset visibility -->
+            <div class="eht-rotator__slide eht-rotator__slide--green is-active" role="group" aria-label="Reason 1 of 5">
+              <div class="eht-rotator__icon-wrap">
+                <svg viewBox="0 0 64 64" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="32" cy="28" r="18"/>
+                  <text x="32" y="34" text-anchor="middle" font-size="18" font-family="sans-serif" fill="white" stroke="none">$</text>
+                  <polyline points="44,48 50,42 56,48"/>
+                  <line x1="50" y1="42" x2="50" y2="58"/>
+                </svg>
+              </div>
+              <div class="eht-rotator__body">
+                <span class="eht-rotator__num">01 / 06</span>
+                <h3 class="eht-rotator__title">Reduces Costs. Improves Asset Visibility.</h3>
+                <p class="eht-rotator__desc">Acting on early fault warnings eliminates emergency repair costs, unplanned downtime, and secondary motor damage. Know the health status of every monitored motor at a glance — continuously, from the panel.</p>
+              </div>
+            </div>
+
+            <!-- Slide 2 — No subscription, no cloud -->
+            <div class="eht-rotator__slide eht-rotator__slide--blue" role="group" aria-label="Reason 2 of 5">
+              <div class="eht-rotator__icon-wrap">
+                <svg viewBox="0 0 64 64" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="18" y="18" width="28" height="28" rx="4" fill="rgba(255,255,255,0.15)"/>
+                  <circle cx="28" cy="28" r="2" fill="white" stroke="none"/>
+                  <circle cx="36" cy="28" r="2" fill="white" stroke="none"/>
+                  <circle cx="28" cy="36" r="2" fill="white" stroke="none"/>
+                  <circle cx="36" cy="36" r="2" fill="white" stroke="none"/>
+                  <line x1="14" y1="28" x2="18" y2="28"/>
+                  <line x1="46" y1="28" x2="50" y2="28"/>
+                  <line x1="14" y1="36" x2="18" y2="36"/>
+                  <line x1="46" y1="36" x2="50" y2="36"/>
+                  <line x1="28" y1="14" x2="28" y2="18"/>
+                  <line x1="36" y1="14" x2="36" y2="18"/>
+                  <line x1="28" y1="46" x2="28" y2="50"/>
+                  <line x1="36" y1="46" x2="36" y2="50"/>
+                  <circle cx="52" cy="14" r="7" stroke="rgba(255,255,255,0.6)"/>
+                  <line x1="47" y1="9" x2="57" y2="19" stroke="rgba(255,255,255,0.9)"/>
+                </svg>
+              </div>
+              <div class="eht-rotator__body">
+                <span class="eht-rotator__num">02 / 06</span>
+                <h3 class="eht-rotator__title">No Subscription. No Cloud Required.</h3>
+                <p class="eht-rotator__desc">All analysis and insight generation happens on the device itself. No internet connection needed, no ongoing software fees, no data leaving your facility. Buy it once — it works.</p>
+              </div>
+            </div>
+
+            <!-- Slide 3 — No specialist needed -->
+            <div class="eht-rotator__slide eht-rotator__slide--teal" role="group" aria-label="Reason 3 of 5">
+              <div class="eht-rotator__icon-wrap">
+                <svg viewBox="0 0 64 64" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M10 12 Q10 6 16 6 L48 6 Q54 6 54 12 L54 36 Q54 42 48 42 L24 42 L14 54 L14 42 Q10 42 10 36 Z"/>
+                  <polyline points="22,24 28,30 42,18"/>
+                </svg>
+              </div>
+              <div class="eht-rotator__body">
+                <span class="eht-rotator__num">03 / 06</span>
+                <h3 class="eht-rotator__title">No Specialist Needed to Interpret Results.</h3>
+                <p class="eht-rotator__desc">MotIQ converts raw electrical and thermal signals into plain-language health scores, predictive advisories, and active alarms. Any maintenance technician can read and act on the output — no signal analysis expertise required.</p>
+              </div>
+            </div>
+
+            <!-- Slide 4 — Own enclosure, no panel modification -->
+            <div class="eht-rotator__slide eht-rotator__slide--orange" role="group" aria-label="Reason 4 of 5">
+              <div class="eht-rotator__icon-wrap">
+                <svg viewBox="0 0 64 64" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <!-- Standalone panel enclosure -->
+                  <rect x="8" y="10" width="28" height="44" rx="3"/>
+                  <rect x="12" y="16" width="20" height="14" rx="2" fill="rgba(255,255,255,0.15)"/>
+                  <line x1="12" y1="38" x2="32" y2="38"/>
+                  <circle cx="22" cy="47" r="3"/>
+                  <!-- Arrow pointing away from client panel -->
+                  <line x1="40" y1="32" x2="56" y2="32"/>
+                  <polyline points="50,26 56,32 50,38"/>
+                  <!-- Small client panel outline (faint) -->
+                  <rect x="42" y="14" width="16" height="12" rx="2" stroke="rgba(255,255,255,0.35)" stroke-dasharray="3 2"/>
+                </svg>
+              </div>
+              <div class="eht-rotator__body">
+                <span class="eht-rotator__num">04 / 06</span>
+                <h3 class="eht-rotator__title">Ships in Its Own Enclosure.</h3>
+                <p class="eht-rotator__desc">MotIQ comes in its own industrial panel — no modifications to your existing MCC or switchgear are required. Mount it nearby, wire it to the motor supply, and it is ready to monitor. Your panel stays untouched.</p>
+              </div>
+            </div>
+
+            <!-- Slide 5 — Three systems, one device -->
+            <div class="eht-rotator__slide eht-rotator__slide--navy" role="group" aria-label="Reason 5 of 6">
+              <div class="eht-rotator__icon-wrap">
+                <svg viewBox="0 0 64 64" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="22" cy="28" r="13"/>
+                  <circle cx="42" cy="28" r="13"/>
+                  <circle cx="32" cy="44" r="13"/>
+                  <circle cx="32" cy="32" r="4" fill="rgba(255,255,255,0.3)" stroke="none"/>
+                </svg>
+              </div>
+              <div class="eht-rotator__body">
+                <span class="eht-rotator__num">05 / 06</span>
+                <h3 class="eht-rotator__title">Three Monitoring Systems. One Device.</h3>
+                <p class="eht-rotator__desc">Motor Current Signature Analysis, 3-phase power monitoring, and infrared thermal imaging — fully integrated in one compact unit with a single connection point, one health score, and one source of truth.</p>
+              </div>
+            </div>
+
+            <!-- Slide 6 — Preventive data before alarm level -->
+            <div class="eht-rotator__slide eht-rotator__slide--green" role="group" aria-label="Reason 6 of 6">
+              <div class="eht-rotator__icon-wrap">
+                <svg viewBox="0 0 64 64" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <!-- Rising fault curve -->
+                  <polyline points="4,52 16,50 28,44 38,32 46,20 54,12"/>
+                  <!-- Alarm threshold (dashed, high) -->
+                  <line x1="4" y1="10" x2="60" y2="10" stroke="rgba(255,255,255,0.35)" stroke-dasharray="4 3"/>
+                  <text x="44" y="8" font-size="6" fill="rgba(255,255,255,0.55)" font-family="monospace">ALARM</text>
+                  <!-- Early flag well below alarm line -->
+                  <line x1="30" y1="42" x2="30" y2="28"/>
+                  <rect x="30" y="20" width="26" height="10" rx="2" fill="rgba(255,255,255,0.25)"/>
+                  <text x="33" y="27" font-size="5.5" fill="white" font-family="monospace">MotIQ ALERT</text>
+                  <circle cx="30" cy="42" r="4" fill="white" stroke="none"/>
+                </svg>
+              </div>
+              <div class="eht-rotator__body">
+                <span class="eht-rotator__num">06 / 06</span>
+                <h3 class="eht-rotator__title">Preventive Alerts Before Alarms Ever Fire.</h3>
+                <p class="eht-rotator__desc">MotIQ flags developing faults while conditions are still in the advisory zone — well before they breach an alarm threshold or trip a motor. Your team gets the time to schedule a planned repair instead of managing an emergency.</p>
+              </div>
+            </div>
+
+          </div><!-- /.eht-rotator__track -->
+
+          <!-- Progress bar -->
+          <div class="eht-rotator__progress" aria-hidden="true">
+            <div class="eht-rotator__progress-fill" id="motiq-rotator-progress"></div>
+          </div>
+
+          <!-- Dot navigation -->
+          <div class="eht-rotator__dots" role="tablist" aria-label="Why MotIQ slides">
+            <button class="eht-rotator__dot is-active" data-idx="0" role="tab" aria-selected="true"  aria-label="Cost Savings"></button>
+            <button class="eht-rotator__dot"           data-idx="1" role="tab" aria-selected="false" aria-label="No Subscription"></button>
+            <button class="eht-rotator__dot"           data-idx="2" role="tab" aria-selected="false" aria-label="No Specialist"></button>
+            <button class="eht-rotator__dot"           data-idx="3" role="tab" aria-selected="false" aria-label="Own Enclosure"></button>
+            <button class="eht-rotator__dot"           data-idx="4" role="tab" aria-selected="false" aria-label="Three Systems"></button>
+            <button class="eht-rotator__dot"           data-idx="5" role="tab" aria-selected="false" aria-label="Preventive Alerts"></button>
+          </div>
+        </div><!-- /#motiq-rotator -->
+
+      </div>
+    </section>
+
+    <!-- WHAT IS MOTIQ -->
+    <section class="motiq-what" aria-label="What is MotIQ">
+      <div class="container">
+        <div class="motiq-what__head">
+          <span class="eyebrow">02 · What It Monitors</span>
+          <h2 class="motiq-what__title">Four Systems.<br>One Device.</h2>
+        </div>
+
+        <div class="motiq-what__pillars">
+
+          <!-- Pillar 1: Electrical Analysis -->
+          <div class="motiq-what__pillar">
+            <div class="motiq-what__icon-wrap motiq-what__icon-wrap--blue">
+              <svg viewBox="0 0 64 64" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="4,32 12,32 17,14 23,50 29,20 35,44 40,32 52,32 57,22 60,32"/>
+              </svg>
+            </div>
+            <h3 class="motiq-what__pillar-title">Electrical Analysis</h3>
+            <p class="motiq-what__pillar-body">Motor Current Signature Analysis (CSA) detects rotor and stator faults directly from current waveforms, no vibration sensors, no production shutdown.</p>
+            <ul class="motiq-what__pillar-list">
+              <li>Broken rotor bar</li>
+              <li>Eccentricity (static &amp; dynamic)</li>
+              <li>Many more...</li>
+            </ul>
+          </div>
+
+          <!-- Pillar 2: Power Monitoring -->
+          <div class="motiq-what__pillar">
+            <div class="motiq-what__icon-wrap motiq-what__icon-wrap--green">
+              <svg viewBox="0 0 64 64" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="4,32 14,32 18,18 24,46 30,22 36,42 40,32 60,32"/>
+                <line x1="32" y1="4" x2="32" y2="10"/>
+                <line x1="32" y1="54" x2="32" y2="60"/>
+                <line x1="4" y1="32" x2="10" y2="32"/>
+                <line x1="54" y1="32" x2="60" y2="32"/>
+                <circle cx="32" cy="32" r="26" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+              </svg>
+            </div>
+            <h3 class="motiq-what__pillar-title">Power Monitoring</h3>
+            <p class="motiq-what__pillar-body">Continuous three-phase power measurement tracks energy consumption and power quality, identifying waste, inefficiency, and voltage anomalies in real time.</p>
+            <ul class="motiq-what__pillar-list">
+              <li>Active, reactive &amp; apparent power</li>
+              <li>Power factor</li>
+              <li>Many more...</li>
+            </ul>
+          </div>
+
+          <!-- Pillar 3: Thermal Imaging -->
+          <div class="motiq-what__pillar">
+            <div class="motiq-what__icon-wrap motiq-what__icon-wrap--orange">
+              <svg viewBox="0 0 64 64" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <!-- Camera body -->
+                <rect x="8" y="20" width="48" height="32" rx="5"/>
+                <!-- Lens -->
+                <circle cx="32" cy="36" r="10"/>
+                <circle cx="32" cy="36" r="5"/>
+                <!-- Viewfinder bump -->
+                <path d="M24 20 L28 12 L36 12 L40 20"/>
+                <!-- Heat dots suggesting thermal -->
+                <circle cx="20" cy="28" r="2" fill="white" stroke="none"/>
+                <circle cx="44" cy="28" r="2" fill="white" stroke="none"/>
+                <circle cx="20" cy="44" r="2" fill="white" stroke="none"/>
+                <circle cx="44" cy="44" r="2" fill="white" stroke="none"/>
+              </svg>
+            </div>
+            <h3 class="motiq-what__pillar-title">Thermal Imaging</h3>
+            <p class="motiq-what__pillar-body">An integrated 8×8 infrared array monitors motor contactors and electrical connections for heat buildup, catching hotspots before insulation fails or a breaker trips.</p>
+            <ul class="motiq-what__pillar-list">
+              <li>Contactor temperature (0–80°C)</li>
+              <li>Connection hotspot detection</li>
+              <li>Many more...</li>
+            </ul>
+          </div>
+
+          <!-- Pillar 4: Motor Control -->
+          <div class="motiq-what__pillar">
+            <div class="motiq-what__icon-wrap motiq-what__icon-wrap--navy">
+              <svg viewBox="0 0 64 64" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <!-- Start/stop button + signal lines -->
+                <circle cx="32" cy="32" r="20"/>
+                <polygon points="26,24 26,40 42,32" fill="white" stroke="none"/>
+                <line x1="10" y1="20" x2="4"  y2="20"/>
+                <line x1="10" y1="32" x2="4"  y2="32"/>
+                <line x1="10" y1="44" x2="4"  y2="44"/>
+                <line x1="54" y1="20" x2="60" y2="20"/>
+                <line x1="54" y1="32" x2="60" y2="32"/>
+                <line x1="54" y1="44" x2="60" y2="44"/>
+              </svg>
+            </div>
+            <h3 class="motiq-what__pillar-title">Motor Control</h3>
+            <p class="motiq-what__pillar-body">Automates motor start and stop based on process conditions — temperature, pressure, or external dry-contact signals — with full manual override from the panel at any time.</p>
+            <ul class="motiq-what__pillar-list">
+              <li>Remote start/stop via dry contact</li>
+              <li>Condition-based automation (temp &amp; pressure)</li>
+              <li>Many more...</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="motiq-what__tagline">
+          Electrical · Thermal · Power · Motor Control — One Device
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY EARLY DETECTION MATTERS -->
+    <section class="motiq-why" id="motiq-why" aria-labelledby="motiq-why-h">
+      <div class="container">
+
+        <div class="motiq-why__head">
+          <span class="eyebrow">02b · Why It Matters</span>
+          <h2 class="motiq-why__title" id="motiq-why-h">
+            Every fault has a window.<br>Miss it, and the cost multiplies.
+          </h2>
+          <p class="motiq-why__intro">
+            The faults MotIQ monitors don't appear suddenly. They develop over weeks or months,
+            leaving a detectable trail long before a motor trips or fails. Acting inside that window
+            is the difference between a planned repair and an emergency shutdown.
+          </p>
+        </div>
+
+        <!-- Three visual fault panels -->
+        <div class="motiq-why__panels">
+
+          <!-- Panel 1: Electrical Faults -->
+          <div class="motiq-why__panel">
+            <div class="motiq-why__vis motiq-why__vis--elec">
+              <div class="motiq-why__vis-label">Healthy current signature</div>
+              <svg class="motiq-why__wave" viewBox="0 0 320 80" fill="none" aria-hidden="true">
+                <path d="M0,40 C20,40 20,10 40,10 C60,10 60,70 80,70 C100,70 100,10 120,10 C140,10 140,70 160,70 C180,70 180,10 200,10 C220,10 220,70 240,70 C260,70 260,10 280,10 C300,10 300,70 320,70"
+                  stroke="#2ea87c" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <div class="motiq-why__vis-divider"></div>
+              <div class="motiq-why__vis-label motiq-why__vis-label--fault">Fault signature visible to MotIQ</div>
+              <svg class="motiq-why__wave" viewBox="0 0 320 80" fill="none" aria-hidden="true">
+                <!-- Main wave with subtle sideband distortion on the fault cycles -->
+                <path d="M0,40 C20,40 20,12 40,12 C60,12 60,68 80,68 C100,68 100,12 120,12 C140,12 140,68 160,68 C180,68 180,8 200,8 C220,8 220,72 240,72 C260,72 260,14 280,14 C300,14 300,66 320,66"
+                  stroke="#E07B2A" stroke-width="2" stroke-linecap="round" stroke-dasharray="1"/>
+                <!-- Sideband ripple overlay on the fault cycles -->
+                <path d="M160,68 C165,62 168,74 172,68 C176,62 179,74 183,68 C187,62 190,74 194,68 C198,62 201,74 205,68"
+                  stroke="#d45040" stroke-width="1.5" stroke-linecap="round" opacity="0.85"/>
+                <!-- Fault annotation -->
+                <circle cx="183" cy="68" r="12" stroke="#d45040" stroke-width="1" stroke-dasharray="3 2" fill="none"/>
+                <line x1="195" y1="60" x2="218" y2="46" stroke="#d45040" stroke-width="1"/>
+                <text x="220" y="44" fill="#d45040" font-size="9" font-family="monospace">Rotor fault</text>
+              </svg>
+              <div class="motiq-why__vis-tag motiq-why__vis-tag--weeks">Detectable weeks before failure</div>
+            </div>
+            <div class="motiq-why__panel-body">
+              <h3 class="motiq-why__panel-title">Electrical &amp; Rotor Faults</h3>
+              <p class="motiq-why__panel-desc">A broken rotor bar or developing eccentricity leaves a subtle signature in the motor current waveform. MotIQ reads this signature continuously. No production stop. No sensor on the motor itself.</p>
+              <div class="motiq-why__cost-row">
+                <div class="motiq-why__cost motiq-why__cost--good">
+                  <span class="motiq-why__cost-label">Detected early</span>
+                  <span class="motiq-why__cost-num">$1,500</span>
+                  <span class="motiq-why__cost-detail">Planned rotor repair</span>
+                </div>
+                <div class="motiq-why__cost-vs">vs</div>
+                <div class="motiq-why__cost motiq-why__cost--bad">
+                  <span class="motiq-why__cost-label">Missed entirely</span>
+                  <span class="motiq-why__cost-num">$20,000+</span>
+                  <span class="motiq-why__cost-detail">Emergency replacement + downtime</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 2: Power Quality -->
+          <div class="motiq-why__panel">
+            <div class="motiq-why__vis motiq-why__vis--power">
+              <!-- Power factor gauge -->
+              <div class="motiq-why__vis-label">Power factor: healthy vs degraded</div>
+              <svg class="motiq-why__gauge" viewBox="0 0 320 140" fill="none" aria-hidden="true">
+                <!-- Background arc -->
+                <path d="M40,120 A120,120 0 0,1 280,120" stroke="#E8E8E6" stroke-width="18" stroke-linecap="round" fill="none"/>
+                <!-- Good zone (green, 0.90–1.00) -->
+                <path d="M200,120 A120,120 0 0,1 280,120" stroke="#2ea87c" stroke-width="18" stroke-linecap="round" fill="none" opacity="0.85"/>
+                <!-- Warning zone (yellow, 0.75–0.90) -->
+                <path d="M120,43 A120,120 0 0,1 200,120" stroke="#E0A020" stroke-width="18" stroke-linecap="round" fill="none" opacity="0.75"/>
+                <!-- Bad zone (red, <0.75) -->
+                <path d="M40,120 A120,120 0 0,1 120,43" stroke="#d45040" stroke-width="18" stroke-linecap="round" fill="none" opacity="0.75"/>
+                <!-- Needle — pointing to ~0.72 (bad zone) -->
+                <line x1="160" y1="120" x2="82" y2="62" stroke="#0C0C0C" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="160" cy="120" r="7" fill="#0C0C0C"/>
+                <!-- Labels -->
+                <text x="28" y="138" fill="#d45040" font-size="11" font-family="monospace" font-weight="bold">0.70</text>
+                <text x="148" y="26" fill="#E0A020" font-size="11" font-family="monospace">0.85</text>
+                <text x="272" y="138" fill="#2ea87c" font-size="11" font-family="monospace">1.00</text>
+                <!-- Center reading -->
+                <text x="160" y="100" text-anchor="middle" fill="#d45040" font-size="22" font-family="monospace" font-weight="bold">0.72</text>
+                <text x="160" y="115" text-anchor="middle" fill="#9A9A9A" font-size="9" font-family="monospace">POWER FACTOR</text>
+              </svg>
+              <div class="motiq-why__vis-tag motiq-why__vis-tag--cost">Hidden energy loss every hour</div>
+            </div>
+            <div class="motiq-why__panel-body">
+              <h3 class="motiq-why__panel-title">Power Quality &amp; Energy Loss</h3>
+              <p class="motiq-why__panel-desc">Poor power factor and voltage unbalance silently drain energy and accelerate motor wear. MotIQ quantifies the loss and gives you the data to correct it, per motor.</p>
+              <div class="motiq-why__cost-row">
+                <div class="motiq-why__cost motiq-why__cost--good">
+                  <span class="motiq-why__cost-label">Corrected with data</span>
+                  <span class="motiq-why__cost-num">$1,080/yr</span>
+                  <span class="motiq-why__cost-detail">Saved per motor (5% loss, 30 kW)</span>
+                </div>
+                <div class="motiq-why__cost-vs">×</div>
+                <div class="motiq-why__cost motiq-why__cost--bad">
+                  <span class="motiq-why__cost-label">Across 10 motors</span>
+                  <span class="motiq-why__cost-num">$10,800/yr</span>
+                  <span class="motiq-why__cost-detail">Ongoing undetected waste</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 3: Thermal / Contactor -->
+          <div class="motiq-why__panel">
+            <div class="motiq-why__vis motiq-why__vis--thermal">
+              <div class="motiq-why__vis-label">8×8 infrared array — live contactor scan</div>
+              <!-- Thermal grid -->
+              <svg class="motiq-why__thermal-grid" viewBox="0 0 320 160" aria-hidden="true">
+                <!-- Grid cells: 8 columns × 8 rows, each ~34×17px, palette: cool=blue, warm=yellow, hot=orange/red -->
+                <!-- Row 1 (top) — mostly cool -->
+                <rect x="12" y="10" width="34" height="17" rx="2" fill="#4a90c8" opacity="0.8"/>
+                <rect x="50" y="10" width="34" height="17" rx="2" fill="#5298cc" opacity="0.8"/>
+                <rect x="88" y="10" width="34" height="17" rx="2" fill="#62a4d0" opacity="0.8"/>
+                <rect x="126" y="10" width="34" height="17" rx="2" fill="#72b0d4" opacity="0.8"/>
+                <rect x="164" y="10" width="34" height="17" rx="2" fill="#82bcd8" opacity="0.8"/>
+                <rect x="202" y="10" width="34" height="17" rx="2" fill="#6ab0d2" opacity="0.8"/>
+                <rect x="240" y="10" width="34" height="17" rx="2" fill="#5aa4cc" opacity="0.8"/>
+                <rect x="278" y="10" width="34" height="17" rx="2" fill="#4a90c8" opacity="0.8"/>
+                <!-- Row 2 -->
+                <rect x="12" y="31" width="34" height="17" rx="2" fill="#5298cc" opacity="0.8"/>
+                <rect x="50" y="31" width="34" height="17" rx="2" fill="#62a4d0" opacity="0.8"/>
+                <rect x="88" y="31" width="34" height="17" rx="2" fill="#92c0da" opacity="0.8"/>
+                <rect x="126" y="31" width="34" height="17" rx="2" fill="#b8d090" opacity="0.8"/>
+                <rect x="164" y="31" width="34" height="17" rx="2" fill="#d0c870" opacity="0.8"/>
+                <rect x="202" y="31" width="34" height="17" rx="2" fill="#e8b840" opacity="0.8"/>
+                <rect x="240" y="31" width="34" height="17" rx="2" fill="#f0a830" opacity="0.85"/>
+                <rect x="278" y="31" width="34" height="17" rx="2" fill="#e09030" opacity="0.8"/>
+                <!-- Row 3 -->
+                <rect x="12" y="52" width="34" height="17" rx="2" fill="#62a4d0" opacity="0.8"/>
+                <rect x="50" y="52" width="34" height="17" rx="2" fill="#82bcd8" opacity="0.8"/>
+                <rect x="88" y="52" width="34" height="17" rx="2" fill="#a8c890" opacity="0.8"/>
+                <rect x="126" y="52" width="34" height="17" rx="2" fill="#c8b860" opacity="0.8"/>
+                <rect x="164" y="52" width="34" height="17" rx="2" fill="#e8a840" opacity="0.85"/>
+                <rect x="202" y="52" width="34" height="17" rx="2" fill="#f08020" opacity="0.9"/>
+                <rect x="240" y="52" width="34" height="17" rx="2" fill="#e86820" opacity="0.95"/><!-- hot -->
+                <rect x="278" y="52" width="34" height="17" rx="2" fill="#d05820" opacity="0.9"/>
+                <!-- Row 4 — peak hotspot row -->
+                <rect x="12" y="73" width="34" height="17" rx="2" fill="#72b0d4" opacity="0.8"/>
+                <rect x="50" y="73" width="34" height="17" rx="2" fill="#9ac0da" opacity="0.8"/>
+                <rect x="88" y="73" width="34" height="17" rx="2" fill="#c0b870" opacity="0.8"/>
+                <rect x="126" y="73" width="34" height="17" rx="2" fill="#e8a030" opacity="0.85"/>
+                <rect x="164" y="73" width="34" height="17" rx="2" fill="#f07020" opacity="0.9"/>
+                <rect x="202" y="73" width="34" height="17" rx="2" fill="#e85010" opacity="0.95"/><!-- peak -->
+                <rect x="240" y="73" width="34" height="17" rx="2" fill="#c84010" opacity="1" stroke="#fff" stroke-width="1.5"/><!-- peak center -->
+                <rect x="278" y="73" width="34" height="17" rx="2" fill="#b03010" opacity="0.95"/>
+                <!-- Row 5 -->
+                <rect x="12" y="94" width="34" height="17" rx="2" fill="#82bcd8" opacity="0.8"/>
+                <rect x="50" y="94" width="34" height="17" rx="2" fill="#a8c8d8" opacity="0.8"/>
+                <rect x="88" y="94" width="34" height="17" rx="2" fill="#d0b860" opacity="0.8"/>
+                <rect x="126" y="94" width="34" height="17" rx="2" fill="#e89030" opacity="0.85"/>
+                <rect x="164" y="94" width="34" height="17" rx="2" fill="#d86020" opacity="0.9"/>
+                <rect x="202" y="94" width="34" height="17" rx="2" fill="#c04818" opacity="0.9"/><!-- hot -->
+                <rect x="240" y="94" width="34" height="17" rx="2" fill="#e06020" opacity="0.9"/>
+                <rect x="278" y="94" width="34" height="17" rx="2" fill="#c05020" opacity="0.85"/>
+                <!-- Row 6 -->
+                <rect x="12" y="115" width="34" height="17" rx="2" fill="#72b0d4" opacity="0.8"/>
+                <rect x="50" y="115" width="34" height="17" rx="2" fill="#82bcda" opacity="0.8"/>
+                <rect x="88" y="115" width="34" height="17" rx="2" fill="#9ac490" opacity="0.8"/>
+                <rect x="126" y="115" width="34" height="17" rx="2" fill="#b8b870" opacity="0.8"/>
+                <rect x="164" y="115" width="34" height="17" rx="2" fill="#d8a040" opacity="0.85"/>
+                <rect x="202" y="115" width="34" height="17" rx="2" fill="#e88030" opacity="0.85"/>
+                <rect x="240" y="115" width="34" height="17" rx="2" fill="#d07030" opacity="0.85"/>
+                <rect x="278" y="115" width="34" height="17" rx="2" fill="#c06028" opacity="0.85"/>
+                <!-- Row 7 -->
+                <rect x="12" y="136" width="34" height="17" rx="2" fill="#62a4d0" opacity="0.8"/>
+                <rect x="50" y="136" width="34" height="17" rx="2" fill="#72acd2" opacity="0.8"/>
+                <rect x="88" y="136" width="34" height="17" rx="2" fill="#82b8d4" opacity="0.8"/>
+                <rect x="126" y="136" width="34" height="17" rx="2" fill="#a0c0d8" opacity="0.8"/>
+                <rect x="164" y="136" width="34" height="17" rx="2" fill="#c0b888" opacity="0.8"/>
+                <rect x="202" y="136" width="34" height="17" rx="2" fill="#d8a858" opacity="0.8"/>
+                <rect x="240" y="136" width="34" height="17" rx="2" fill="#c89050" opacity="0.8"/>
+                <rect x="278" y="136" width="34" height="17" rx="2" fill="#b07840" opacity="0.8"/>
+                <!-- Hotspot annotation -->
+                <rect x="232" y="65" width="50" height="37" rx="3" fill="none" stroke="#d45040" stroke-width="1.5" stroke-dasharray="4 2"/>
+                <line x1="257" y1="65" x2="257" y2="52" stroke="#d45040" stroke-width="1"/>
+                <rect x="222" y="38" width="70" height="14" rx="2" fill="#d45040" opacity="0.9"/>
+                <text x="257" y="48" text-anchor="middle" fill="white" font-size="9" font-family="monospace" font-weight="bold">71°C HOTSPOT</text>
+              </svg>
+              <div class="motiq-why__vis-tag motiq-why__vis-tag--hot">Phase C connection: 71°C · Action required</div>
+            </div>
+            <div class="motiq-why__panel-body">
+              <h3 class="motiq-why__panel-title">Contactor Overheating</h3>
+              <p class="motiq-why__panel-desc">An oxidised terminal or loose connection creates resistance that generates heat. That heat builds invisibly inside the enclosure until insulation fails or the contactor trips — often catastrophically. MotIQ's 8×8 IR array catches it first.</p>
+              <div class="motiq-why__cost-row">
+                <div class="motiq-why__cost motiq-why__cost--good">
+                  <span class="motiq-why__cost-label">Caught early</span>
+                  <span class="motiq-why__cost-num">$300</span>
+                  <span class="motiq-why__cost-detail">Connection cleaning or contactor swap</span>
+                </div>
+                <div class="motiq-why__cost-vs">vs</div>
+                <div class="motiq-why__cost motiq-why__cost--bad">
+                  <span class="motiq-why__cost-label">Missed entirely</span>
+                  <span class="motiq-why__cost-num">$6,000+</span>
+                  <span class="motiq-why__cost-detail">Emergency panel repair + motor damage</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /.motiq-why__panels -->
+
+        <!-- Disclaimer -->
+        <p class="motiq-why__disclaimer">
+          Cost figures are illustrative examples based on industry estimates. Actual results vary by facility, asset size, and operating conditions.
+        </p>
+
+        <!-- Detection timeline -->
+        <div class="dash-timeline dash-timeline--light">
+          <div class="dash-timeline__head">
+            <h3 class="dash-timeline__title">How early is early enough?</h3>
+            <p class="dash-timeline__sub">MotIQ detects developing faults weeks before a traditional alarm fires, giving your team a window to plan, schedule, and act without emergency costs.</p>
+          </div>
+          <div class="dash-timeline__chart" aria-hidden="true">
+            <svg viewBox="0 0 820 200" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+              <rect x="40" y="10" width="160" height="140" rx="4" fill="rgba(34,160,74,0.06)"/>
+              <rect x="200" y="10" width="230" height="140" rx="4" fill="rgba(224,123,42,0.08)"/>
+              <rect x="430" y="10" width="170" height="140" rx="4" fill="rgba(200,50,50,0.07)"/>
+              <rect x="600" y="10" width="180" height="140" rx="4" fill="rgba(200,30,30,0.12)"/>
+              <path d="M40,145 C100,145 160,142 220,135 C280,128 320,115 370,92 C420,68 460,45 510,26 C545,14 575,10 600,10" stroke="rgba(0,0,0,0.35)" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="200" y1="8" x2="200" y2="152" stroke="#E07B2A" stroke-width="1.5" stroke-dasharray="5 3"/>
+              <circle cx="200" cy="137" r="5" fill="#E07B2A"/>
+              <rect x="134" y="155" width="130" height="22" rx="4" fill="rgba(224,123,42,0.12)" stroke="rgba(224,123,42,0.5)" stroke-width="1"/>
+              <text x="199" y="169" font-size="9" fill="#E07B2A" font-family="monospace" font-weight="600" text-anchor="middle">MotIQ detects here</text>
+              <line x1="430" y1="8" x2="430" y2="152" stroke="#C83232" stroke-width="1.5" stroke-dasharray="5 3"/>
+              <circle cx="430" cy="100" r="5" fill="#C83232"/>
+              <rect x="355" y="155" width="150" height="22" rx="4" fill="rgba(200,50,50,0.08)" stroke="rgba(200,50,50,0.4)" stroke-width="1"/>
+              <text x="430" y="169" font-size="9" fill="#C83232" font-family="monospace" font-weight="600" text-anchor="middle">Traditional alarm fires</text>
+              <line x1="200" y1="180" x2="430" y2="180" stroke="rgba(0,0,0,0.2)" stroke-width="1"/>
+              <line x1="200" y1="176" x2="200" y2="184" stroke="rgba(0,0,0,0.2)" stroke-width="1"/>
+              <line x1="430" y1="176" x2="430" y2="184" stroke="rgba(0,0,0,0.2)" stroke-width="1"/>
+              <text x="315" y="196" font-size="8.5" fill="rgba(0,0,0,0.4)" font-family="monospace" text-anchor="middle">Your window to plan a repair</text>
+              <text x="120" y="8" font-size="8" fill="rgba(0,0,0,0.3)" font-family="monospace" text-anchor="middle">Normal</text>
+              <text x="315" y="8" font-size="8" fill="rgba(224,123,42,0.8)" font-family="monospace" text-anchor="middle">Advisory</text>
+              <text x="515" y="8" font-size="8" fill="rgba(200,72,72,0.8)" font-family="monospace" text-anchor="middle">Alarm</text>
+              <text x="690" y="8" font-size="8" fill="rgba(200,50,50,0.7)" font-family="monospace" text-anchor="middle">Failure</text>
+              <text x="16" y="80" font-size="7.5" fill="rgba(0,0,0,0.25)" font-family="monospace" text-anchor="middle" transform="rotate(-90,16,80)">Fault Severity</text>
+            </svg>
+          </div>
+          <p class="dash-timeline__note">Scenarios are illustrative. Detection timing depends on fault type, motor size, and operating conditions.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- REVEAL / ASSEMBLY -->
+    <section class="reveal" id="reveal-section" aria-labelledby="reveal-h">
+      <div class="reveal__pin" id="reveal-pin">
+        <div class="reveal__header reveal__header--centered">
+          <span class="eyebrow">03 · The Device · Anatomy</span>
+          <h2 class="reveal__title" id="reveal-h" data-reveal-title></h2>
+          <p class="reveal__body" data-reveal-body></p>
+        </div>
+        <div class="reveal__steps" id="reveal-steps"></div>
+        <div class="reveal__progress"><div class="reveal__progress-fill" id="reveal-progress"></div></div>
+      </div>
+    </section>
+
+    <!-- SCREEN GALLERY -->
+    <section class="motiq-screens" aria-label="MotIQ LCD screens">
+      <!-- Centred heading -->
+      <div class="motiq-screens__head container">
+        <span class="eyebrow motiq-screens__eyebrow">04 · The Display</span>
+        <h2 class="motiq-screens__title">See Everything.<br><em>In Real Time.</em></h2>
+        <p class="motiq-screens__sub">MotIQ's LCD gives operators instant visibility into motor health, power quality, and thermal status, directly from the panel.</p>
+      </div>
+      <!-- Three-column row: LCD1 · LCD2 · product image -->
+      <div class="motiq-screens__row container">
+        <div class="motiq-screen-card">
+          <div class="motiq-screen-card__frame">
+            <img src="./assets/LCD1.png" alt="MotIQ LCD: Electrical Metrics" loading="lazy" />
+          </div>
+          <div class="motiq-screen-card__label">
+            <span class="motiq-screen-card__name">Electrical Metrics</span>
+            <span class="motiq-screen-card__desc">Voltage, current, active power, power factor, load balance</span>
+          </div>
+        </div>
+        <div class="motiq-screen-card">
+          <div class="motiq-screen-card__frame">
+            <img src="./assets/LCD2.png" alt="MotIQ LCD: Thermal Diagnostics" loading="lazy" />
+          </div>
+          <div class="motiq-screen-card__label">
+            <span class="motiq-screen-card__name">Thermal Diagnostics</span>
+            <span class="motiq-screen-card__desc">8x8 thermal map, hotspot detection, temperature trends</span>
+          </div>
+        </div>
+        <div class="motiq-screen-card motiq-screen-card--product" aria-hidden="true">
+          <img src="./assets/LCD123.png" alt="MotIQ device" class="motiq-screens__product-img" />
+        </div>
+      </div>
+    </section>
+
+    <!-- DASHBOARD / LIVE CONDITION — removed, content moved to Why Early Detection -->
+    <section class="dashboard" id="dashboard" aria-labelledby="dashboard-h" style="display:none">
+      <div class="dashboard__bg" aria-hidden="true">
+        <div class="dashboard__grid"></div>
+        <div class="dashboard__glow"></div>
+      </div>
+
+      <div class="container">
+
+        <!-- Section header -->
+        <div class="dash-head">
+          <div class="dash-head__left">
+            <span class="eyebrow dash-head__eyebrow">04 · Live Condition</span>
+            <h2 class="dash-head__title" id="dashboard-h" data-dashboard-title></h2>
+          </div>
+          <p class="dash-head__sub" data-dashboard-body></p>
+        </div>
+
+        <!-- Three signal source cards -->
+        <div class="dash-signals">
+
+          <!-- 1 · Current Signature Analysis -->
+          <div class="dash-signal">
+            <div class="dash-signal__vis" aria-hidden="true">
+              <!-- Three-phase current waveform with fault annotation -->
+              <svg viewBox="0 0 280 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Gridlines -->
+                <line x1="0" y1="55" x2="280" y2="55" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                <line x1="0" y1="28" x2="280" y2="28" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="3 4"/>
+                <line x1="0" y1="82" x2="280" y2="82" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="3 4"/>
+                <!-- Phase labels -->
+                <text x="4" y="10" font-size="7" fill="rgba(255,255,255,0.35)" font-family="monospace">Ph-A</text>
+                <text x="4" y="19" font-size="7" fill="rgba(255,255,255,0.2)" font-family="monospace">Ph-B</text>
+                <text x="4" y="28" font-size="7" fill="rgba(255,255,255,0.15)" font-family="monospace">Ph-C</text>
+                <!-- Phase C (faint) -->
+                <polyline points="0,82 10,64 22,46 33,33 44,28 55,33 66,46 77,64 88,82 99,100 110,108 121,100 132,82 143,64 154,46 165,33 176,28 187,33 198,46 209,64 220,82 231,100 242,108 253,100 264,82 275,64 280,60" stroke="rgba(74,158,255,0.18)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <!-- Phase B (semi-faint) -->
+                <polyline points="0,33 11,28 22,33 33,46 44,64 55,82 66,100 77,108 88,100 99,82 110,64 121,46 132,33 143,28 154,33 165,46 176,64 187,82 198,100 209,108 220,100 231,82 242,64 253,46 264,33 275,28 280,29" stroke="rgba(74,158,255,0.28)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <!-- Phase A, has a subtle fault distortion in 2nd cycle -->
+                <polyline points="0,55 11,33 22,18 33,14 44,18 55,33 66,55 77,77 88,92 99,96 110,92 121,77 132,55 143,25 150,20 158,22 165,35 176,55 187,77 198,92 209,96 220,92 231,77 242,55 253,33 264,18 275,14 280,16" stroke="#4A9EFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <!-- Fault signature highlight bubble -->
+                <circle cx="150" cy="20" r="8" fill="rgba(224,123,42,0.18)" stroke="#E07B2A" stroke-width="1.5"/>
+                <!-- Callout line and label -->
+                <line x1="158" y1="14" x2="178" y2="6" stroke="#E07B2A" stroke-width="1" stroke-dasharray="2 2"/>
+                <rect x="179" y="1" width="96" height="12" rx="2" fill="rgba(224,123,42,0.15)" stroke="rgba(224,123,42,0.4)" stroke-width="0.8"/>
+                <text x="183" y="9.5" font-size="6.5" fill="#E07B2A" font-family="monospace">Fault signature · CSA</text>
+              </svg>
+            </div>
+            <h3 class="dash-signal__title">Current Signature Analysis</h3>
+            <p class="dash-signal__body">Non-intrusive analysis of 3-phase motor current waveforms, CSA detects rotor, stator, and bearing faults at the electrical level weeks before failure appears in vibration.</p>
+            <ul class="dash-signal__list">
+              <li>Broken rotor bar</li>
+              <li>Eccentricity: static &amp; dynamic</li>
+              <li>Electrical &amp; load unbalance</li>
+              <li>Torque hunting &amp; slip frequency</li>
+              <li>Bearing &amp; stator anomalies</li>
+            </ul>
+          </div>
+
+          <!-- 2 · Infrared Thermal Monitoring -->
+          <div class="dash-signal">
+            <div class="dash-signal__vis" aria-hidden="true">
+              <!-- 8×8 IR thermal grid with hotspot cluster -->
+              <svg viewBox="0 0 188 188" xmlns="http://www.w3.org/2000/svg">
+                <!-- Title bar -->
+                <rect x="0" y="0" width="188" height="188" rx="6" fill="rgba(255,255,255,0.03)"/>
+                <!-- Grid cells: 8×8, each 20×20 with 3px gap, starting at x=10,y=30 -->
+                <!-- Row 0 -->
+                <rect x="10" y="30" width="20" height="20" rx="2" fill="#1a2b3e"/><rect x="33" y="30" width="20" height="20" rx="2" fill="#1a2b3e"/><rect x="56" y="30" width="20" height="20" rx="2" fill="#1e3048"/><rect x="79" y="30" width="20" height="20" rx="2" fill="#1e3048"/><rect x="102" y="30" width="20" height="20" rx="2" fill="#1a2b3e"/><rect x="125" y="30" width="20" height="20" rx="2" fill="#1a2b3e"/><rect x="148" y="30" width="20" height="20" rx="2" fill="#1a2b3e"/><rect x="171" y="30" width="20" height="20" rx="2" fill="#1a2b3e"/>
+                <!-- Row 1 -->
+                <rect x="10" y="53" width="20" height="20" rx="2" fill="#1a2b3e"/><rect x="33" y="53" width="20" height="20" rx="2" fill="#1e3048"/><rect x="56" y="53" width="20" height="20" rx="2" fill="#1e3048"/><rect x="79" y="53" width="20" height="20" rx="2" fill="#1e3048"/><rect x="102" y="53" width="20" height="20" rx="2" fill="#253d58"/><rect x="125" y="53" width="20" height="20" rx="2" fill="#1e3048"/><rect x="148" y="53" width="20" height="20" rx="2" fill="#1a2b3e"/><rect x="171" y="53" width="20" height="20" rx="2" fill="#1a2b3e"/>
+                <!-- Row 2 -->
+                <rect x="10" y="76" width="20" height="20" rx="2" fill="#1a2b3e"/><rect x="33" y="76" width="20" height="20" rx="2" fill="#1e3048"/><rect x="56" y="76" width="20" height="20" rx="2" fill="#1e3048"/><rect x="79" y="76" width="20" height="20" rx="2" fill="#253d58"/><rect x="102" y="76" width="20" height="20" rx="2" fill="#3d5a78"/><rect x="125" y="76" width="20" height="20" rx="2" fill="#5a7245"/><rect x="148" y="76" width="20" height="20" rx="2" fill="#253d58"/><rect x="171" y="76" width="20" height="20" rx="2" fill="#1a2b3e"/>
+                <!-- Row 3 -->
+                <rect x="10" y="99" width="20" height="20" rx="2" fill="#1a2b3e"/><rect x="33" y="99" width="20" height="20" rx="2" fill="#1e3048"/><rect x="56" y="99" width="20" height="20" rx="2" fill="#253d58"/><rect x="79" y="99" width="20" height="20" rx="2" fill="#5a7245"/><rect x="102" y="99" width="20" height="20" rx="2" fill="#9e6230"/><rect x="125" y="99" width="20" height="20" rx="2" fill="#C86A3C" opacity="0.9"/><rect x="148" y="99" width="20" height="20" rx="2" fill="#7B4A2A"/><rect x="171" y="99" width="20" height="20" rx="2" fill="#1e3048"/>
+                <!-- Row 4, hotspot peak -->
+                <rect x="10" y="122" width="20" height="20" rx="2" fill="#1a2b3e"/><rect x="33" y="122" width="20" height="20" rx="2" fill="#1e3048"/><rect x="56" y="122" width="20" height="20" rx="2" fill="#253d58"/><rect x="79" y="122" width="20" height="20" rx="2" fill="#7B4A2A"/><rect x="102" y="122" width="20" height="20" rx="2" fill="#C86A3C"/><rect x="125" y="122" width="20" height="20" rx="2" fill="#E07B2A"/><rect x="148" y="122" width="20" height="20" rx="2" fill="#C86A3C" opacity="0.8"/><rect x="171" y="122" width="20" height="20" rx="2" fill="#3d5a78"/>
+                <!-- Row 5 -->
+                <rect x="10" y="145" width="20" height="20" rx="2" fill="#1a2b3e"/><rect x="33" y="145" width="20" height="20" rx="2" fill="#1e3048"/><rect x="56" y="145" width="20" height="20" rx="2" fill="#1e3048"/><rect x="79" y="145" width="20" height="20" rx="2" fill="#5a7245"/><rect x="102" y="145" width="20" height="20" rx="2" fill="#9e6230"/><rect x="125" y="145" width="20" height="20" rx="2" fill="#C86A3C" opacity="0.7"/><rect x="148" y="145" width="20" height="20" rx="2" fill="#7B4A2A" opacity="0.7"/><rect x="171" y="145" width="20" height="20" rx="2" fill="#253d58"/>
+                <!-- Row 6 -->
+                <rect x="10" y="168" width="20" height="20" rx="2" fill="#1a2b3e"/><rect x="33" y="168" width="20" height="20" rx="2" fill="#1a2b3e"/><rect x="56" y="168" width="20" height="20" rx="2" fill="#1e3048"/><rect x="79" y="168" width="20" height="20" rx="2" fill="#253d58"/><rect x="102" y="168" width="20" height="20" rx="2" fill="#3d5a78"/><rect x="125" y="168" width="20" height="20" rx="2" fill="#5a7245"/><rect x="148" y="168" width="20" height="20" rx="2" fill="#253d58"/><rect x="171" y="168" width="20" height="20" rx="2" fill="#1a2b3e"/>
+                <!-- Hotspot callout -->
+                <rect x="120" y="112" width="4" height="4" rx="1" fill="none" stroke="#E07B2A" stroke-width="1.5"/>
+                <line x1="126" y1="112" x2="140" y2="98" stroke="#E07B2A" stroke-width="1" stroke-dasharray="2 2"/>
+                <rect x="133" y="86" width="52" height="14" rx="3" fill="rgba(224,123,42,0.15)" stroke="rgba(224,123,42,0.5)" stroke-width="0.8"/>
+                <text x="137" y="95" font-size="6.5" fill="#E07B2A" font-family="monospace">68 °C · Hotspot</text>
+                <!-- Scale bar -->
+                <defs>
+                  <linearGradient id="heat-scale" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#1a2b3e"/>
+                    <stop offset="50%" stop-color="#3d5a78"/>
+                    <stop offset="75%" stop-color="#9e6230"/>
+                    <stop offset="100%" stop-color="#E07B2A"/>
+                  </linearGradient>
+                </defs>
+                <rect x="10" y="14" width="88" height="6" rx="3" fill="url(#heat-scale)"/>
+                <text x="10" y="11" font-size="6" fill="rgba(255,255,255,0.4)" font-family="monospace">0 °C</text>
+                <text x="90" y="11" font-size="6" fill="rgba(255,255,255,0.4)" font-family="monospace">80 °C</text>
+                <text x="102" y="11" font-size="6.5" fill="rgba(255,255,255,0.3)" font-family="monospace">8 × 8 IR Array</text>
+              </svg>
+            </div>
+            <h3 class="dash-signal__title">Infrared Thermal Monitoring</h3>
+            <p class="dash-signal__body">An integrated 8×8 IR sensor array scans motor contactors and connection zones for heat buildup, detecting oxidation, loose terminations, and overloading before insulation fails.</p>
+            <ul class="dash-signal__list">
+              <li>Contactor temperature · 0–80 °C range</li>
+              <li>Connection hotspot detection</li>
+              <li>Uneven phase heating</li>
+              <li>Long-term thermal trend tracking</li>
+              <li>High-temperature predictive alarms</li>
+            </ul>
+          </div>
+
+          <!-- 3 · Health Score & Two-Tier Alarms -->
+          <div class="dash-signal">
+            <div class="dash-signal__vis" aria-hidden="true">
+              <!-- Health score gauge + two-tier alarm indicators -->
+              <svg viewBox="0 0 220 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Background arc track (270° gauge, gap at bottom) -->
+                <path d="M 40,155 A 70,70 0 1 1 180,155" stroke="rgba(255,255,255,0.1)" stroke-width="10" stroke-linecap="round"/>
+                <!-- Score fill: 92% of 270° arc = 248° shown -->
+                <path d="M 40,155 A 70,70 0 1 1 171,106" stroke="#3D6CB5" stroke-width="10" stroke-linecap="round"/>
+                <!-- Inner score text -->
+                <text x="110" y="112" font-size="32" font-weight="700" fill="white" font-family="sans-serif" text-anchor="middle">92</text>
+                <text x="110" y="128" font-size="10" fill="rgba(255,255,255,0.45)" font-family="monospace" text-anchor="middle">HEALTH SCORE</text>
+                <text x="110" y="142" font-size="8" fill="rgba(255,255,255,0.3)" font-family="monospace" text-anchor="middle">Confidence 92% · Stable</text>
+                <!-- Scale labels -->
+                <text x="36" y="168" font-size="7" fill="rgba(255,255,255,0.3)" font-family="monospace" text-anchor="middle">0</text>
+                <text x="184" y="168" font-size="7" fill="rgba(255,255,255,0.3)" font-family="monospace" text-anchor="middle">100</text>
+                <!-- Tier 1, Predictive alarm indicator -->
+                <rect x="10" y="158" width="93" height="20" rx="4" fill="rgba(224,123,42,0.12)" stroke="rgba(224,123,42,0.4)" stroke-width="1"/>
+                <circle cx="20" cy="168" r="3.5" fill="#E07B2A"/>
+                <text x="27" y="172" font-size="7" fill="#E07B2A" font-family="monospace">Predictive · Looseness</text>
+                <!-- Tier 2, Active alarm indicator (all clear) -->
+                <rect x="117" y="158" width="93" height="20" rx="4" fill="rgba(60,180,80,0.10)" stroke="rgba(60,180,80,0.35)" stroke-width="1"/>
+                <circle cx="127" cy="168" r="3.5" fill="#3CB454"/>
+                <text x="134" y="172" font-size="7" fill="#3CB454" font-family="monospace">Active · None</text>
+                <!-- BMS output arrow -->
+                <line x1="110" y1="148" x2="110" y2="155" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+              </svg>
+            </div>
+            <h3 class="dash-signal__title">Health Score &amp; Two-Tier Alarms</h3>
+            <p class="dash-signal__body">Every monitored parameter rolls up into a 0–100% health score. A two-tier system separates early advisory signals from elevated fault evidence, giving maintenance teams time to plan rather than react.</p>
+            <ul class="dash-signal__list">
+              <li>Health Score 0–100%</li>
+              <li>Predictive alarms: early advisory</li>
+              <li>Active alarms: elevated fault evidence</li>
+              <li>BMS via Modbus RTU / BACnet TCP-IP</li>
+              <li>Local 800 × 480 LCD display</li>
+            </ul>
+          </div>
+
+        </div><!-- /.dash-signals -->
+
+        <!-- Live dashboard twin cards (existing JS hooks preserved) -->
+        <div class="dashboard__inner">
+          <div class="dashboard__text">
+            <p class="dash-twin-label">Live panel view · Motor 06 · Building 25</p>
+            <p class="dash-twin-sub">One truth, everywhere, every metric at the panel and in the control room simultaneously.</p>
+          </div>
+          <div class="dashboard__twin" id="twin-grid">
+            <div class="dashboard__card glass dashboard__card--head" data-twin-card>
+              <div>
+                <span class="dashboard__card-label">Motor 06 · Bldg 25</span>
+                <div class="dashboard__status" style="margin-top: var(--sp-3);">Running</div>
+              </div>
+              <div>
+                <div class="dashboard__card-meta"><span>Line Freq</span><span class="mono">59.5 Hz</span></div>
+                <div class="dashboard__card-meta"><span>Start Count (24h)</span><span class="mono">15</span></div>
+                <div class="dashboard__card-meta"><span>Run Hours</span><span class="mono">4,820 h</span></div>
+              </div>
+            </div>
+
+            <div class="dashboard__card glass dashboard__card--score" data-twin-card>
+              <span class="dashboard__card-label">Health Score</span>
+              <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:var(--sp-4);">
+                <div>
+                  <div class="dashboard__card-value"><span id="health-value">0</span><span class="unit">%</span></div>
+                  <div class="dashboard__card-meta" style="margin-top:var(--sp-2);"><span>Confidence 92% · Stable</span></div>
+                </div>
+                <div class="ring">
+                  <svg viewBox="0 0 100 100">
+                    <circle class="ring__track" cx="50" cy="50" r="43" fill="none" stroke-width="2"/>
+                    <circle class="ring__fill" id="health-ring" cx="50" cy="50" r="43" fill="none" stroke-width="2"/>
+                  </svg>
+                  <span class="ring__label" id="health-ring-label">92</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="dashboard__card glass dashboard__card--heat" data-twin-card>
+              <span class="dashboard__card-label">Thermal · 8 × 8 · Contactor Zone</span>
+              <div class="heat-grid" id="heat-grid" aria-hidden="true"></div>
+              <div class="dashboard__card-meta">
+                <span>Max 60.3 °C</span>
+                <span class="mono" style="color:#3CB454">Normal</span>
+              </div>
+            </div>
+
+            <div class="dashboard__card glass dashboard__card--wave" data-twin-card>
+              <div class="dashboard__card-meta" style="justify-content:flex-start;gap:var(--sp-4);">
+                <span class="dashboard__card-label">Current Signature · 3-Phase</span>
+                <span class="mono">I rms 43.6 A</span>
+                <span class="mono">V 1130 V</span>
+              </div>
+              <svg class="wave-svg" id="wave-svg" viewBox="0 0 400 120" preserveAspectRatio="none" aria-hidden="true">
+                <path class="wave-path wave-path--a" id="wave-a"/>
+                <path class="wave-path wave-path--b" id="wave-b"/>
+                <path class="wave-path wave-path--c" id="wave-c"/>
+              </svg>
+              <div class="dashboard__card-meta">
+                <span>P 28.5 kW</span><span>PF 0.95</span><span>THD 2.1%</span><span>Balanced</span>
+              </div>
+            </div>
+
+            <div class="dashboard__card glass dashboard__card--meta" data-twin-card>
+              <div class="dashboard__card-meta" style="align-items:baseline;">
+                <span class="dashboard__card-label">Predictive</span>
+                <span class="mono" style="color:var(--warm);">Looseness · Advisory 29%</span>
+              </div>
+              <div class="dashboard__card-meta" style="align-items:baseline;">
+                <span class="dashboard__card-label">Active</span>
+                <span class="mono" style="color:#3CB454;">None</span>
+              </div>
+              <div class="dashboard__card-meta" style="align-items:baseline;">
+                <span class="dashboard__card-label">Energy · 24h</span>
+                <span class="mono">5,150.2 kWh</span>
+              </div>
+            </div>
+          </div><!-- /#twin-grid -->
+        </div><!-- /.dashboard__inner -->
+
+        <!-- Detection timeline, key value proposition visual -->
+        <div class="dash-timeline">
+          <div class="dash-timeline__head">
+            <h3 class="dash-timeline__title">How early is early enough?</h3>
+            <p class="dash-timeline__sub">MotIQ detects developing faults weeks before a traditional alarm fires, giving your team a window to plan, schedule, and act without emergency costs.</p>
+          </div>
+          <div class="dash-timeline__chart" aria-hidden="true">
+            <svg viewBox="0 0 820 200" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+              <!-- Background zones -->
+              <!-- Normal zone (0–160) -->
+              <rect x="40" y="10" width="160" height="140" rx="4" fill="rgba(60,180,84,0.05)"/>
+              <!-- Advisory window (160–430), MotIQ sees this -->
+              <rect x="200" y="10" width="230" height="140" rx="4" fill="rgba(224,123,42,0.07)"/>
+              <!-- Alarm zone (430–600), traditional threshold fires here -->
+              <rect x="430" y="10" width="170" height="140" rx="4" fill="rgba(200,50,50,0.07)"/>
+              <!-- Failure zone (600–780) -->
+              <rect x="600" y="10" width="180" height="140" rx="4" fill="rgba(200,30,30,0.12)"/>
+
+              <!-- Fault severity curve -->
+              <path d="M40,145 C80,145 120,143 160,140 C200,137 230,128 270,112 C310,96 340,80 380,62 C420,44 450,32 490,22 C530,12 560,10 600,10 L780,10" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" stroke-dasharray="4 3"/>
+              <!-- Smooth curve -->
+              <path d="M40,145 C100,145 160,142 220,135 C280,128 320,115 370,92 C420,68 460,45 510,26 C545,14 575,10 600,10" stroke="white" stroke-width="2.5" stroke-linecap="round" opacity="0.55"/>
+
+              <!-- MotIQ detection point -->
+              <line x1="200" y1="8" x2="200" y2="152" stroke="#E07B2A" stroke-width="1.5" stroke-dasharray="5 3"/>
+              <circle cx="200" cy="137" r="5" fill="#E07B2A"/>
+              <rect x="134" y="155" width="130" height="22" rx="4" fill="rgba(224,123,42,0.2)" stroke="rgba(224,123,42,0.6)" stroke-width="1"/>
+              <text x="199" y="169" font-size="9" fill="#E07B2A" font-family="monospace" font-weight="600" text-anchor="middle">MotIQ detects here</text>
+
+              <!-- Traditional alarm point -->
+              <line x1="430" y1="8" x2="430" y2="152" stroke="#C83232" stroke-width="1.5" stroke-dasharray="5 3"/>
+              <circle cx="430" cy="100" r="5" fill="#C83232"/>
+              <rect x="355" y="155" width="150" height="22" rx="4" fill="rgba(200,50,50,0.15)" stroke="rgba(200,50,50,0.5)" stroke-width="1"/>
+              <text x="430" y="169" font-size="9" fill="#C84848" font-family="monospace" font-weight="600" text-anchor="middle">Traditional alarm fires</text>
+
+              <!-- "Window to act" brace -->
+              <line x1="200" y1="180" x2="430" y2="180" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+              <line x1="200" y1="176" x2="200" y2="184" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+              <line x1="430" y1="176" x2="430" y2="184" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+              <text x="315" y="196" font-size="8.5" fill="rgba(255,255,255,0.5)" font-family="monospace" text-anchor="middle">Your window to plan a repair</text>
+
+              <!-- X-axis labels -->
+              <text x="120" y="8" font-size="8" fill="rgba(255,255,255,0.3)" font-family="monospace" text-anchor="middle">Normal</text>
+              <text x="315" y="8" font-size="8" fill="rgba(224,123,42,0.7)" font-family="monospace" text-anchor="middle">Advisory</text>
+              <text x="515" y="8" font-size="8" fill="rgba(200,72,72,0.7)" font-family="monospace" text-anchor="middle">Alarm</text>
+              <text x="690" y="8" font-size="8" fill="rgba(200,50,50,0.6)" font-family="monospace" text-anchor="middle">Failure</text>
+
+              <!-- Y-axis label -->
+              <text x="16" y="80" font-size="7.5" fill="rgba(255,255,255,0.25)" font-family="monospace" text-anchor="middle" transform="rotate(-90,16,80)">Fault Severity</text>
+            </svg>
+          </div>
+          <p class="dash-timeline__note">Scenarios are illustrative. Detection timing depends on fault type, motor size, and operating conditions.</p>
+        </div>
+
+      </div><!-- /.container -->
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features" id="features" aria-labelledby="features-h">
+      <div class="container">
+        <div class="features__head">
+          <div>
+            <span class="eyebrow">05 · Capabilities</span>
+            <h2 class="h-section features__title" id="features-h" style="margin-top: var(--sp-5);" data-features-title></h2>
+          </div>
+          <p class="lead" data-features-body></p>
+        </div>
+        <div class="feature-grid" id="feature-grid"></div>
+      </div>
+    </section>
+
+    <!-- CLOSING / CONTACT -->
+    <section class="product-contact" id="closing" aria-labelledby="closing-h">
+      <div class="container">
+        <div class="product-contact__inner">
+          <div class="product-contact__text">
+            <span class="eyebrow">06 · Contact</span>
+            <h2 class="product-contact__title" id="closing-h">Ready to See MotIQ<br>in Your Facility?</h2>
+            <p class="product-contact__sub">Every motor installation is different. Talk to our team about your assets, your panel configuration, and what early electrical and thermal detection could mean for your operations.</p>
+            <div class="product-contact__actions">
+              <a class="btn" href="./contact.html">
+                Contact Us <span class="btn__arrow" aria-hidden="true">→</span>
+              </a>
+              <a class="product-contact__email" href="mailto:Sales@vatikor.ca">Sales@vatikor.ca</a>
+            </div>
+          </div>
+          <div class="product-contact__meta">
+            <div class="product-contact__detail">
+              <span class="product-contact__detail-label">Company</span>
+              <span class="product-contact__detail-value">Vatikor</span>
+            </div>
+            <div class="product-contact__detail">
+              <span class="product-contact__detail-label">Location</span>
+              <span class="product-contact__detail-value">Ontario, Canada</span>
+            </div>
+            <div class="product-contact__detail">
+              <span class="product-contact__detail-label">Email</span>
+              <span class="product-contact__detail-value">Sales@vatikor.ca</span>
+            </div>
+            <div class="product-contact__detail">
+              <span class="product-contact__detail-label">Product</span>
+              <span class="product-contact__detail-value">MotIQ · Motor Health Monitor</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__row">
+          <div class="footer__brand" data-brand>MotIQ</div>
+          <div class="footer__links">
+            <a href="#reveal-section">The Device</a>
+            <a href="#motiq-why">Why It Matters</a>
+            <a href="#features">Features</a>
+            <a href="./eht.html">EHT</a>
+            <a href="./contact.html">Contact</a>
+          </div>
+          <div class="footer__meta" data-footer-meta>© 2026 · Vatikor</div>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
