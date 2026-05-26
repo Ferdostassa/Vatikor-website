@@ -6,46 +6,124 @@
     "tagline": "Intelligent Monitoring for Critical Assets",
     "hero_headline": "Prevent Failures Before They Happen",
     "hero_sub": "Smart monitoring that reveals hidden motor and equipment issues early",
-    "hero_eyebrow": "Vatikor · Ontario, Canada",
+    "hero_eyebrow": "Vatikor \u00b7 Ontario, Canada",
     "problem_headline": "Most failures don't happen suddenly.",
     "problem_body": "Equipment problems develop invisibly, vibration patterns shift, electrical signatures drift, temperatures creep. By the time a traditional alarm fires, damage has already occurred. Vatikor makes these hidden signals visible, early enough to act.",
     "problem_cards": [
-      { "title": "Unexpected Failures", "body": "Threshold alarms fire at the moment of failure, not weeks before it." },
-      { "title": "Unplanned Downtime", "body": "Emergency repairs cost 5–10× more than planned maintenance events." },
-      { "title": "Reactive Maintenance", "body": "Without visibility, every repair is a response, never a decision." }
+      {
+        "title": "Unexpected Failures",
+        "body": "Threshold alarms fire at the moment of failure, not weeks before it."
+      },
+      {
+        "title": "Unplanned Downtime",
+        "body": "Emergency repairs cost 5\u201310\u00d7 more than planned maintenance events."
+      },
+      {
+        "title": "Reactive Maintenance",
+        "body": "Without visibility, every repair is a response, never a decision."
+      }
     ],
     "stats_headline": "What early detection is worth.",
     "shared_stats": [
-      { "value": "$18,500", "label": "avg. avoided downtime cost per bearing event", "numeric": "18500", "prefix": "$", "suffix": "" },
-      { "value": "$10,800", "label": "potential energy savings across 10 motors / year", "numeric": "10800", "prefix": "$", "suffix": "" },
-      { "value": "24/7", "label": "continuous monitoring, electrical and mechanical", "numeric": null, "prefix": "", "suffix": "" },
-      { "value": "3-in-1", "label": "vibration · sound · temperature (EHT)", "numeric": null, "prefix": "", "suffix": "" }
+      {
+        "value": "$18,500",
+        "label": "avg. avoided downtime cost per bearing event",
+        "numeric": "18500",
+        "prefix": "$",
+        "suffix": ""
+      },
+      {
+        "value": "$10,800",
+        "label": "potential energy savings across 10 motors / year",
+        "numeric": "10800",
+        "prefix": "$",
+        "suffix": ""
+      },
+      {
+        "value": "24/7",
+        "label": "continuous monitoring, electrical and mechanical",
+        "numeric": null,
+        "prefix": "",
+        "suffix": ""
+      },
+      {
+        "value": "3-in-1",
+        "label": "vibration \u00b7 sound \u00b7 temperature (EHT)",
+        "numeric": null,
+        "prefix": "",
+        "suffix": ""
+      },
+      {
+        "value": "30%",
+        "label": "typical cooling energy saved via thermal optimization (ThermRack)",
+        "numeric": "30",
+        "prefix": "",
+        "suffix": "%"
+      }
     ],
     "closing_headline": "Ready to see what your equipment is telling you?",
-    "closing_cta": { "label": "Contact Sales", "href": "./contact.html" },
+    "closing_cta": {
+      "label": "Contact Sales",
+      "href": "./contact.html"
+    },
     "nav": [
-      { "label": "MotIQ", "href": "./motiq.html", "type": "page" },
-      { "label": "EHT", "href": "./eht.html", "type": "page" },
-      { "label": "Contact", "href": "./contact.html", "type": "page" }
+      {
+        "label": "MotIQ",
+        "href": "./motiq.html",
+        "type": "page"
+      },
+      {
+        "label": "EHT",
+        "href": "./eht.html",
+        "type": "page"
+      },
+      {
+        "label": "ThermRack",
+        "href": "./thermalrack.html",
+        "type": "page"
+      },
+      {
+        "label": "Contact",
+        "href": "./contact.html",
+        "type": "page"
+      }
     ],
     "products": [
       {
         "name": "MotIQ",
         "tagline": "Intelligent Motor Health & Power Monitoring",
         "description": "Panel-mounted device combining Motor Current Signature Analysis, 3-phase power monitoring, and infrared thermal analysis, making hidden motor faults visible before failure.",
-        "benefits": ["Electrical & thermal intelligence in one device", "Predictive alarms, not reactive trips", "Modbus RTU / BACnet/IP to your BMS"],
+        "benefits": [
+          "Electrical & thermal intelligence in one device",
+          "Predictive alarms, not reactive trips",
+          "Modbus RTU / BACnet/IP to your BMS"
+        ],
         "href": "./motiq.html"
       },
       {
         "name": "EHT",
         "tagline": "Equipment Health Tracker",
         "description": "Compact wireless sensor mounted directly on rotating equipment, triaxial vibration, acoustic, and temperature analysis with on-device machine learning.",
-        "benefits": ["3-in-1: vibration · sound · temperature", "ML pattern detection, not threshold alarms", "Wireless, mounts on the bearing housing"],
+        "benefits": [
+          "3-in-1: vibration \u00b7 sound \u00b7 temperature",
+          "ML pattern detection, not threshold alarms",
+          "Wireless, mounts on the bearing housing"
+        ],
         "href": "./eht.html"
+      },
+      {
+        "name": "ThermRack\u2122",
+        "tagline": "Thermal Intelligence for Data Centers",
+        "description": "Wireless thermal cameras that monitor temperature across every rack and aisle in real time \u2014 preventing hotspots, optimizing cooling efficiency, and delivering actionable insights to your BMS.",
+        "benefits": [
+          "Real-time 3D thermal maps of every rack",
+          "Hotspot & overcooling detection",
+          "BACnet TCP/IP \u2014 no cloud required"
+        ],
+        "href": "./thermalrack.html"
       }
     ]
   },
-
   "motiq": {
     "product_name": "MotIQ",
     "vendor": "Vatikor",
@@ -55,9 +133,8 @@
     "hero_headline": "Predict. Prevent. Protect.",
     "hero_accent_word": "Prevent.",
     "hero_subheadline": "MotIQ fuses electrical, thermal, and operational intelligence into one industrial device, so hidden faults surface weeks before failure.",
-    "hero_eyebrow": "MotIQ · Vatikor",
+    "hero_eyebrow": "MotIQ \u00b7 Vatikor",
     "positioning_one_liner": "Electrical. Thermal. Operational. Insight in one device.",
-
     "core_features": [
       {
         "title": "Electrical Intelligence",
@@ -67,9 +144,9 @@
       },
       {
         "title": "Thermal Awareness",
-        "short_description": "An on-board 8×8 infrared array watches contactors for hidden hotspots.",
+        "short_description": "An on-board 8\u00d78 infrared array watches contactors for hidden hotspots.",
         "long_description": "An integrated infrared camera renders a live thermal map of the contactor and connection zone. High-resistance joints, oxidation, and loose terminations are identified long before they smoke, a class of failure traditional monitoring never sees at all.",
-        "icon_concept": "A 3×3 grid of squares with the center cell highlighted as a hotspot"
+        "icon_concept": "A 3\u00d73 grid of squares with the center cell highlighted as a hotspot"
       },
       {
         "title": "Health Score",
@@ -86,7 +163,7 @@
       {
         "title": "Seamless Integration",
         "short_description": "Modbus RTU, BACnet/IP, and BMS-ready out of the box.",
-        "long_description": "Every MotIQ transmits processed health indicators, not raw telemetry floods, to your existing BMS, SCADA, or PLC. Industrial protocols come standard; the 800×480 LCD gives operators local clarity the moment they walk up to the panel.",
+        "long_description": "Every MotIQ transmits processed health indicators, not raw telemetry floods, to your existing BMS, SCADA, or PLC. Industrial protocols come standard; the 800\u00d7480 LCD gives operators local clarity the moment they walk up to the panel.",
         "icon_concept": "Three concentric half-arcs indicating signal propagating outward"
       },
       {
@@ -96,14 +173,13 @@
         "icon_concept": "A minimal play/pause triangle nested inside a square frame"
       }
     ],
-
     "sections": [
       {
         "id": "hero",
         "headline": "Intelligent motor health, made visible.",
         "body_short": "One device unifies electrical, thermal, and operational intelligence.",
         "body_long": "MotIQ is an intelligent motor health and power monitoring system that turns raw signals into actionable insight. Continuous 24/7 analysis replaces reactive maintenance with informed, planned action.",
-        "animation_cue": "Model fades in, rotates 360° once, and settles at a three-quarter hero angle."
+        "animation_cue": "Model fades in, rotates 360\u00b0 once, and settles at a three-quarter hero angle."
       },
       {
         "id": "reveal",
@@ -148,15 +224,28 @@
         "animation_cue": "Model returns as a faint, slowly rotating silhouette."
       }
     ],
-
     "stats": [
-      { "value": "24/7", "label": "Continuous electrical & thermal monitoring" },
-      { "value": "Weeks", "label": "Early fault warning before failure" },
-      { "value": "$10,800", "label": "Avoidable loss per 10-asset fleet, per year" },
-      { "value": "8×8", "label": "Infrared thermal array resolution" },
-      { "value": "3", "label": "Tiers: Pro, Ultra, Premier" }
+      {
+        "value": "24/7",
+        "label": "Continuous electrical & thermal monitoring"
+      },
+      {
+        "value": "Weeks",
+        "label": "Early fault warning before failure"
+      },
+      {
+        "value": "$10,800",
+        "label": "Avoidable loss per 10-asset fleet, per year"
+      },
+      {
+        "value": "8\u00d78",
+        "label": "Infrared thermal array resolution"
+      },
+      {
+        "value": "3",
+        "label": "Tiers: Pro, Ultra, Premier"
+      }
     ],
-
     "use_cases": [
       {
         "sector": "Water & Wastewater",
@@ -179,43 +268,91 @@
         "detail": "Rotary compressors and refrigeration plant, continuous intelligence at the panel, without a dedicated vibration analyst on site."
       }
     ],
-
     "callouts": [
       {
         "title": "Three-Phase Current and Voltage",
         "detail": "Three-phase current and voltage signals are measured and processed continuously for motor health analysis.",
-        "anchor_offset": [0.35, 0.05, 0.15]
+        "anchor_offset": [
+          0.35,
+          0.05,
+          0.15
+        ]
       },
       {
         "title": "Thermal Camera Connection",
         "detail": "Connection port for the optional infrared thermal camera monitoring contactors and electrical connections.",
-        "anchor_offset": [-0.35, 0.1, 0.15]
+        "anchor_offset": [
+          -0.35,
+          0.1,
+          0.15
+        ]
       },
       {
-        "title": "HMI Interface — LCD 4.3\"",
+        "title": "HMI Interface \u2014 LCD 4.3\"",
         "detail": "4.3-inch industrial LCD display giving operators direct visibility into motor health, power metrics, and alarm status at the panel.",
-        "anchor_offset": [0.0, 0.35, 0.25]
+        "anchor_offset": [
+          0.0,
+          0.35,
+          0.25
+        ]
       },
       {
         "title": "Modbus RTU Via RS-485",
         "detail": "Modbus RTU communication over RS-485 for seamless BMS and SCADA integration.",
-        "anchor_offset": [0.0, -0.3, -0.15]
+        "anchor_offset": [
+          0.0,
+          -0.3,
+          -0.15
+        ]
       }
     ],
-
     "nav": [
-      { "label": "Home", "href": "./index.html", "type": "page", "home": true },
-      { "id": "why-motiq", "label": "Why MotIQ", "type": "anchor" },
-      { "id": "reveal", "label": "Product View", "type": "anchor" },
-      { "id": "features", "label": "Features", "type": "anchor" },
-      { "label": "EHT", "href": "./eht.html", "type": "page" },
-      { "label": "Contact", "href": "./contact.html", "type": "page" }
+      {
+        "label": "Home",
+        "href": "./index.html",
+        "type": "page",
+        "home": true
+      },
+      {
+        "id": "why-motiq",
+        "label": "Why MotIQ",
+        "type": "anchor"
+      },
+      {
+        "id": "reveal",
+        "label": "Product View",
+        "type": "anchor"
+      },
+      {
+        "id": "features",
+        "label": "Features",
+        "type": "anchor"
+      },
+      {
+        "label": "EHT",
+        "href": "./eht.html",
+        "type": "page"
+      },
+      {
+        "label": "ThermRack",
+        "href": "./thermalrack.html",
+        "type": "page"
+      },
+      {
+        "label": "Contact",
+        "href": "./contact.html",
+        "type": "page"
+      }
     ],
-    "nav_cta": { "label": "Contact Us", "href": "./contact.html" },
-
-    "cta": { "label": "Contact Us", "href": "./contact.html" }
+    "nav_cta": {
+      "label": "Contact Us",
+      "href": "./contact.html"
+    },
+    "cta": {
+      "label": "Contact Us",
+      "href": "./contact.html"
+    }
   },
-
   "eht": {
     "product_name": "EHT",
     "vendor": "Vatikor",
@@ -223,10 +360,9 @@
     "contact": "Sales@vatikor.ca",
     "tagline_short": "Making Hidden Machine Behavior Visible.",
     "hero_headline": "Plan a repair. Avoid a crisis.",
-    "hero_subheadline": "Unplanned equipment failures can cost up to 40× more than the same repair done on a schedule. EHT gives your team the early warning window to act before a fault becomes an emergency.",
-    "hero_eyebrow": "Equipment Health Tracker · Intelligent Condition Monitoring",
+    "hero_subheadline": "Unplanned equipment failures can cost up to 40\u00d7 more than the same repair done on a schedule. EHT gives your team the early warning window to act before a fault becomes an emergency.",
+    "hero_eyebrow": "Equipment Health Tracker \u00b7 Intelligent Condition Monitoring",
     "positioning_one_liner": "Vibration. Acoustic. Temperature. Intelligence in one compact sensor.",
-
     "core_features": [
       {
         "title": "Triaxial Vibration",
@@ -265,7 +401,6 @@
         "icon_concept": "A minimal cylindrical form with signal rings radiating from the top"
       }
     ],
-
     "sections": [
       {
         "id": "hero",
@@ -317,14 +452,24 @@
         "animation_cue": "Sensor model returns as a faint, slowly rotating silhouette."
       }
     ],
-
     "stats": [
-      { "value": "3-in-1", "label": "Vibration · Sound · Temperature in one sensor" },
-      { "value": "24/7", "label": "Continuous wireless condition monitoring" },
-      { "value": "Up to 80%", "label": "Lower repair cost, planned vs emergency response" },
-      { "value": "Weeks", "label": "Earlier detection vs. threshold-only alarms" }
+      {
+        "value": "3-in-1",
+        "label": "Vibration \u00b7 Sound \u00b7 Temperature in one sensor"
+      },
+      {
+        "value": "24/7",
+        "label": "Continuous wireless condition monitoring"
+      },
+      {
+        "value": "Up to 80%",
+        "label": "Lower repair cost, planned vs emergency response"
+      },
+      {
+        "value": "Weeks",
+        "label": "Earlier detection vs. threshold-only alarms"
+      }
     ],
-
     "use_cases": [
       {
         "sector": "Water & Wastewater",
@@ -347,56 +492,180 @@
         "detail": "Wherever rotating equipment is installed, EHT learns its signature and flags meaningful deviations before they become failures."
       }
     ],
-
     "callouts": [
       {
         "title": "Triaxial Vibration Sensor",
         "detail": "High accuracy 3-axis accelerometer. Captures X, Y and Z motor vibration.",
-        "anchor_offset": [0.35, 0.05, 0.2]
+        "anchor_offset": [
+          0.35,
+          0.05,
+          0.2
+        ]
       },
       {
         "title": "High-Frequency Acoustic Sensor",
         "detail": "Wide-band acoustic sensor that detects developing faults in advance.",
-        "anchor_offset": [0.38, 0.1, 0.28]
+        "anchor_offset": [
+          0.38,
+          0.1,
+          0.28
+        ]
       },
       {
         "title": "Precision Temperature Sensor",
         "detail": "High accuracy thermal probe tracking surface temperature.",
-        "anchor_offset": [-0.38, 0.0, 0.25]
+        "anchor_offset": [
+          -0.38,
+          0.0,
+          0.25
+        ]
       },
       {
         "title": "BMS & SCADA Output",
         "detail": "Processed health indications delivered directly to BMS or SCADA systems.",
-        "anchor_offset": [0.0, 0.42, -0.1]
+        "anchor_offset": [
+          0.0,
+          0.42,
+          -0.1
+        ]
       },
       {
         "title": "Mounting Kit",
         "detail": "Precision mounting kit for secure installation directly onto motor surfaces.",
-        "anchor_offset": [0.0, -0.42, -0.1]
+        "anchor_offset": [
+          0.0,
+          -0.42,
+          -0.1
+        ]
       }
     ],
-
     "bms_assets": [
-      { "id": "M-01", "name": "Pump 1 · Booster",       "alarm": "Normal",   "developing": "None",                 "vib_iso": "OK",       "temp": "Normal",   "comm": "OK",  "status": "good" },
-      { "id": "M-02", "name": "Pump 2 · Transfer",       "alarm": "Normal",   "developing": "None",                 "vib_iso": "OK",       "temp": "Normal",   "comm": "OK",  "status": "good" },
-      { "id": "M-03", "name": "AHU Fan · Roof",          "alarm": "Normal",   "developing": "None",                 "vib_iso": "OK",       "temp": "Normal",   "comm": "OK",  "status": "good" },
-      { "id": "M-04", "name": "Pump 4 · Chilled Water",  "alarm": "Normal",   "developing": "Misalignment",         "vib_iso": "Exceeded", "temp": "Elevated", "comm": "OK",  "status": "warning" },
-      { "id": "M-05", "name": "Compressor · Zone B",     "alarm": "Unbalance", "developing": "Bearing Issues",      "vib_iso": "Exceeded", "temp": "Elevated", "comm": "OK",  "status": "warning" },
-      { "id": "M-06", "name": "Cooling Tower Fan",       "alarm": "Normal",   "developing": "None",                 "vib_iso": "OK",       "temp": "Normal",   "comm": "OK",  "status": "good" },
-      { "id": "M-07", "name": "Pump 7 · Process",        "alarm": "Normal",   "developing": "Bearing Issues",       "vib_iso": "OK",       "temp": "Normal",   "comm": "OK",  "status": "advisory" },
-      { "id": "M-08", "name": "AHU Fan · Level 3",       "alarm": "Normal",   "developing": "None",                 "vib_iso": "OK",       "temp": "Normal",   "comm": "OK",  "status": "good" }
+      {
+        "id": "M-01",
+        "name": "Pump 1 \u00b7 Booster",
+        "alarm": "Normal",
+        "developing": "None",
+        "vib_iso": "OK",
+        "temp": "Normal",
+        "comm": "OK",
+        "status": "good"
+      },
+      {
+        "id": "M-02",
+        "name": "Pump 2 \u00b7 Transfer",
+        "alarm": "Normal",
+        "developing": "None",
+        "vib_iso": "OK",
+        "temp": "Normal",
+        "comm": "OK",
+        "status": "good"
+      },
+      {
+        "id": "M-03",
+        "name": "AHU Fan \u00b7 Roof",
+        "alarm": "Normal",
+        "developing": "None",
+        "vib_iso": "OK",
+        "temp": "Normal",
+        "comm": "OK",
+        "status": "good"
+      },
+      {
+        "id": "M-04",
+        "name": "Pump 4 \u00b7 Chilled Water",
+        "alarm": "Normal",
+        "developing": "Misalignment",
+        "vib_iso": "Exceeded",
+        "temp": "Elevated",
+        "comm": "OK",
+        "status": "warning"
+      },
+      {
+        "id": "M-05",
+        "name": "Compressor \u00b7 Zone B",
+        "alarm": "Unbalance",
+        "developing": "Bearing Issues",
+        "vib_iso": "Exceeded",
+        "temp": "Elevated",
+        "comm": "OK",
+        "status": "warning"
+      },
+      {
+        "id": "M-06",
+        "name": "Cooling Tower Fan",
+        "alarm": "Normal",
+        "developing": "None",
+        "vib_iso": "OK",
+        "temp": "Normal",
+        "comm": "OK",
+        "status": "good"
+      },
+      {
+        "id": "M-07",
+        "name": "Pump 7 \u00b7 Process",
+        "alarm": "Normal",
+        "developing": "Bearing Issues",
+        "vib_iso": "OK",
+        "temp": "Normal",
+        "comm": "OK",
+        "status": "advisory"
+      },
+      {
+        "id": "M-08",
+        "name": "AHU Fan \u00b7 Level 3",
+        "alarm": "Normal",
+        "developing": "None",
+        "vib_iso": "OK",
+        "temp": "Normal",
+        "comm": "OK",
+        "status": "good"
+      }
     ],
-
     "nav": [
-      { "label": "Home", "href": "./index.html", "type": "page", "home": true },
-      { "id": "applications", "label": "Why EHT", "type": "anchor" },
-      { "id": "reveal", "label": "Product View", "type": "anchor" },
-      { "id": "features", "label": "Features", "type": "anchor" },
-      { "label": "MotIQ", "href": "./motiq.html", "type": "page" },
-      { "label": "Contact", "href": "./contact.html", "type": "page" }
+      {
+        "label": "Home",
+        "href": "./index.html",
+        "type": "page",
+        "home": true
+      },
+      {
+        "id": "applications",
+        "label": "Why EHT",
+        "type": "anchor"
+      },
+      {
+        "id": "reveal",
+        "label": "Product View",
+        "type": "anchor"
+      },
+      {
+        "id": "features",
+        "label": "Features",
+        "type": "anchor"
+      },
+      {
+        "label": "MotIQ",
+        "href": "./motiq.html",
+        "type": "page"
+      },
+      {
+        "label": "ThermRack",
+        "href": "./thermalrack.html",
+        "type": "page"
+      },
+      {
+        "label": "Contact",
+        "href": "./contact.html",
+        "type": "page"
+      }
     ],
-    "nav_cta": { "label": "Contact Us", "href": "./contact.html" },
-
-    "cta": { "label": "Contact Us", "href": "./contact.html" }
+    "nav_cta": {
+      "label": "Contact Us",
+      "href": "./contact.html"
+    },
+    "cta": {
+      "label": "Contact Us",
+      "href": "./contact.html"
+    }
   }
 }

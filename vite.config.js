@@ -14,6 +14,7 @@ export default defineConfig({
         main: resolve(__dirname, 'src/index.html'),
         motiq: resolve(__dirname, 'src/motiq.html'),
         eht: resolve(__dirname, 'src/eht.html'),
+        thermalrack: resolve(__dirname, 'src/thermalrack.html'),
         contact: resolve(__dirname, 'src/contact.html'),
       },
     },

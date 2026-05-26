@@ -75,10 +75,10 @@
   padding-bottom: var(--sp-6);
 }
 
-/* Red accent word inside MotIQ hero heading */
+/* Accent word inside MotIQ hero heading — uses brand orange */
 .motiq-hero__accent {
   font-style: normal;
-  color: #d04040;
+  color: var(--warm);
 }
 
 /* ============================================================

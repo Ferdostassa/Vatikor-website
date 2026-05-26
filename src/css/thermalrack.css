@@ -1,0 +1,534 @@
+/* ============================================================
+   THERMALRACK — PAGE-SPECIFIC STYLES
+   Depends on: main.css, components.css, sections.css, eht.css
+   ============================================================ */
+
+/* ── HERO ────────────────────────────────────────────────────── */
+
+/* Matches EHT page-hero pattern: compact top-aligned layout */
+.thermalrack-hero {
+  align-items: flex-start !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none;
+  background: var(--bg);
+}
+
+.thermalrack-hero .hero__content {
+  padding-top: 6.5rem;   /* clear the fixed nav (~66px) + breathing room */
+  padding-bottom: var(--sp-6);
+}
+
+/* Center the hero content */
+.thermalrack-hero .hero__content .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Hero sub — larger than default sub, centred */
+.thermalrack-hero__sub {
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  line-height: 1.5;
+  color: var(--ink-soft);
+  max-width: 52ch;
+  text-align: center;
+  margin-top: var(--sp-5);
+  font-weight: 400;
+}
+
+/* Orange emphasis word inside the h1 */
+.thermalrack-hero__em {
+  font-style: normal;
+  color: var(--warm);
+}
+
+/* ── CAPABILITY CHIPS ────────────────────────────────────────── */
+
+/* Per-chip accent color tokens — set on each modifier class */
+.thermalrack-cap--red    { --cap-color: #d45040; --cap-bg: rgba(212, 80, 64, 0.06);  --cap-border: rgba(212, 80, 64, 0.22); }
+.thermalrack-cap--blue   { --cap-color: #2d6fa8; --cap-bg: rgba(45, 111, 168, 0.06); --cap-border: rgba(45, 111, 168, 0.22); }
+.thermalrack-cap--orange { --cap-color: #C86A3C; --cap-bg: rgba(200, 106, 60, 0.06); --cap-border: rgba(200, 106, 60, 0.22); }
+.thermalrack-cap--green  { --cap-color: #2ea87c; --cap-bg: rgba(46, 168, 124, 0.06); --cap-border: rgba(46, 168, 124, 0.22); }
+
+.thermalrack-caps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-4);
+  margin-top: var(--sp-6);
+  width: 100%;
+  max-width: 860px;
+}
+
+.thermalrack-cap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--sp-3);
+  border: 1.5px solid var(--cap-border, var(--line-strong));
+  border-radius: var(--r-md);
+  padding: var(--sp-5) var(--sp-4);
+  background: var(--cap-bg, var(--surface));
+  transition: transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
+  cursor: default;
+}
+
+.thermalrack-cap:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.10);
+}
+
+.thermalrack-cap__icon {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  color: var(--cap-color, var(--ink-soft));
+}
+
+.thermalrack-cap span {
+  font-family: var(--f-sans);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--cap-color, var(--ink));
+}
+
+@media (max-width: 700px) {
+  .thermalrack-caps {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--sp-3);
+  }
+}
+
+@media (max-width: 400px) {
+  .thermalrack-caps {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── BANNER ──────────────────────────────────────────────────── */
+
+.thermalrack-banner {
+  position: relative;
+  overflow: hidden;
+  background: #0D0F14;
+}
+
+.thermalrack-banner__img-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.thermalrack-banner__img {
+  display: block;
+  width: 100%;
+  height: 700px;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Gradient overlays to blend the image into the surrounding background */
+.thermalrack-banner__fade-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 22%;
+  background: linear-gradient(to bottom, var(--bg) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.thermalrack-banner__fade-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 22%;
+  background: linear-gradient(to top, var(--bg) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+@media (max-width: 700px) {
+  .thermalrack-banner__img {
+    height: 500px;
+    object-position: center top;
+  }
+}
+
+/* ── SYSTEM OVERVIEW SECTION ────────────────────────────────── */
+
+.thermalrack-system {
+  padding: var(--sp-7) 0;
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+}
+
+.thermalrack-system__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-8);
+  align-items: center;
+}
+
+/* Right-side image frame */
+.thermalrack-system__img {
+  position: relative;
+}
+
+.thermalrack-system__img img {
+  width: 100%;
+  border-radius: var(--r-md);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.18),
+    0 4px 16px rgba(0, 0, 0, 0.12),
+    0 0 0 1px rgba(0, 0, 0, 0.06);
+  display: block;
+  background: #0D0F14; /* fallback if image is absent */
+  min-height: 320px;
+  object-fit: cover;
+}
+
+/* If the image fails to load, show a styled placeholder */
+.thermalrack-system__img img[src="./assets/thermalrack-network.png"]:not([complete]) {
+  background: linear-gradient(135deg, #0D0F14 0%, #1a2030 100%);
+}
+
+/* Left-side text block */
+.thermalrack-system__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+}
+
+.thermalrack-system__title {
+  font-family: var(--f-display);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--ink);
+  margin: 0;
+}
+
+.thermalrack-system__body {
+  font-size: clamp(0.95rem, 1.3vw, 1.05rem);
+  line-height: 1.65;
+  color: var(--ink-soft);
+  margin: 0;
+  max-width: 48ch;
+}
+
+/* Callout rows */
+.thermalrack-callouts {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.thermalrack-callout {
+  display: flex;
+  flex-direction: row;
+  gap: var(--sp-5);
+  padding: var(--sp-5) 0;
+  border-top: 1px solid var(--line);
+  align-items: flex-start;
+}
+
+.thermalrack-callout__label {
+  font-family: var(--f-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  min-width: 120px;
+  flex-shrink: 0;
+  padding-top: 0.15em; /* optical alignment with desc */
+}
+
+.thermalrack-callout__desc {
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  color: var(--ink-soft);
+  flex: 1;
+}
+
+@media (max-width: 860px) {
+  .thermalrack-system__inner {
+    grid-template-columns: 1fr;
+  }
+  /* Move image below text on mobile */
+  .thermalrack-system__img {
+    order: 2;
+  }
+  .thermalrack-system__text {
+    order: 1;
+  }
+  .thermalrack-system__body {
+    max-width: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .thermalrack-callout {
+    flex-direction: column;
+    gap: var(--sp-2);
+  }
+  .thermalrack-callout__label {
+    min-width: unset;
+  }
+}
+
+/* ── INSIGHTS SECTION (dark) ─────────────────────────────────── */
+
+.thermalrack-insights {
+  padding: var(--sp-7) 0;
+  background: #0D0F14;
+}
+
+.thermalrack-insights__head {
+  text-align: center;
+  margin-bottom: var(--sp-8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-4);
+}
+
+.thermalrack-insights__eyebrow {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* Override .eyebrow color for dark background */
+.thermalrack-insights .eyebrow {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.thermalrack-insights__title {
+  font-family: var(--f-display);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: #ffffff;
+  margin: 0;
+}
+
+.thermalrack-insights__sub {
+  font-size: clamp(0.9rem, 1.3vw, 1rem);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.50);
+  max-width: 52ch;
+  margin: 0 auto;
+}
+
+/* 2×2 alert card grid */
+.thermalrack-insights__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-5);
+}
+
+/* ── DASHBOARD ALERT CARDS ───────────────────────────────────── */
+
+.tr-alert-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.25s var(--ease-out);
+  cursor: default;
+}
+
+.tr-alert-card:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+/* Illustrated panel — replaces flat header bar */
+.tr-alert-card__header {
+  position: relative;
+  width: 100%;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.tr-alert-card__header--red    { background: linear-gradient(150deg, rgba(160, 38, 24, 0.32) 0%, rgba(14, 5, 4, 0.60) 100%); }
+.tr-alert-card__header--blue   { background: linear-gradient(150deg, rgba(22, 65, 135, 0.32) 0%, rgba(5, 10, 22, 0.60) 100%); }
+.tr-alert-card__header--amber  { background: linear-gradient(150deg, rgba(145, 105, 8, 0.32) 0%, rgba(18, 13, 3, 0.60) 100%); }
+.tr-alert-card__header--orange { background: linear-gradient(150deg, rgba(155, 70, 16, 0.32) 0%, rgba(18, 8, 3, 0.60) 100%); }
+
+/* SVG illustration fills the panel */
+.tr-alert-card__header > svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Badge + timestamp overlaid as strip at top of illustration */
+.tr-alert-card__severity {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.42rem 0.9rem;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+}
+
+.tr-alert-card__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: tr-dot-pulse 2.4s ease-in-out infinite;
+}
+.tr-alert-card__header--red    .tr-alert-card__dot { background: #e05040; }
+.tr-alert-card__header--blue   .tr-alert-card__dot { background: #4a90d8; }
+.tr-alert-card__header--amber  .tr-alert-card__dot { background: #c8a020; }
+.tr-alert-card__header--orange .tr-alert-card__dot { background: #c86a3c; }
+
+@keyframes tr-dot-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.25; }
+}
+
+.tr-alert-card__badge {
+  font-family: var(--f-mono);
+  font-size: 0.60rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.12rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+}
+.tr-alert-card__header--red    .tr-alert-card__badge { color: #e07060; }
+.tr-alert-card__header--blue   .tr-alert-card__badge { color: #5898d8; }
+.tr-alert-card__header--amber  .tr-alert-card__badge { color: #d4b030; }
+.tr-alert-card__header--orange .tr-alert-card__badge { color: #d07848; }
+
+/* Timestamp pushed to right end of severity strip */
+.tr-alert-card__time {
+  font-family: var(--f-mono);
+  font-size: 0.60rem;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.28);
+  margin-left: auto;
+}
+
+/* Card body: title + zone + desc + action */
+.tr-alert-card__body {
+  padding: var(--sp-5) var(--sp-5) var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  flex: 1;
+}
+
+.tr-alert-card__title {
+  font-family: var(--f-display);
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: #ffffff;
+  margin: 0;
+}
+
+.tr-alert-card__zone {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--f-mono);
+  font-size: 0.63rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.36);
+}
+
+.tr-alert-card__zone svg {
+  width: 9px;
+  height: 9px;
+  flex-shrink: 0;
+}
+
+.tr-alert-card__desc {
+  font-size: var(--fs-sm);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.58);
+  margin: 0;
+}
+
+/* Recommended action strip */
+.tr-alert-card__action {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-family: var(--f-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: rgba(255, 255, 255, 0.70);
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+  padding-top: var(--sp-3);
+  margin-top: auto;
+  line-height: 1.55;
+}
+
+.tr-alert-card__action-label {
+  font-family: var(--f-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  flex-shrink: 0;
+  padding-top: 0.12em;
+}
+
+/* Heatmap thumbnail at bottom */
+.tr-alert-card__vis {
+  width: 100%;
+  height: 70px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* Individual heat cells */
+.tr-heat-cell {
+  aspect-ratio: 1;
+  border-radius: 1px;
+}
+
+@media (max-width: 640px) {
+  .thermalrack-insights__grid {
+    grid-template-columns: 1fr;
+  }
+  .tr-alert-card__vis {
+    height: 56px;
+  }
+}
+
+/* ── SCROLL-REVEAL UTILITY ───────────────────────────────────── */
+
+/* Elements with .tr-reveal start invisible; JS applies the animation */
+.tr-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  will-change: transform, opacity;
+}
