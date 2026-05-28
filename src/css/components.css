@@ -400,6 +400,97 @@
 }
 
 /* ============================================================
+   FEATURE CARD BACKGROUND PATTERNS
+   ============================================================ */
+
+/* Shared backdrop layer — ::after so existing ::before hover-line is untouched */
+.feature-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom right;
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 250ms ease;
+}
+.feature-card:hover::after { opacity: 0.12; }
+.feature-card > * { position: relative; z-index: 1; }
+
+/* MotIQ — 1: Electrical Intelligence — EKG waveform */
+.page-motiq .feature-card:nth-child(1)::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 190 190' fill='none'%3E%3Cpolyline points='0,95 28,95 42,35 56,155 68,45 80,145 90,95 145,95 157,68 169,122 181,95 190,95' stroke='%231E3A5F' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cline x1='0' y1='95' x2='190' y2='95' stroke='%231E3A5F' stroke-width='0.8' stroke-dasharray='4 6' opacity='0.45'/%3E%3C/svg%3E");
+}
+
+/* MotIQ — 2: Thermal Awareness — heat-map dot grid */
+.page-motiq .feature-card:nth-child(2)::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 190 190'%3E%3Ccircle cx='20' cy='20' r='7' fill='%23B05A14' opacity='0.18'/%3E%3Ccircle cx='47' cy='20' r='7' fill='%23B05A14' opacity='0.28'/%3E%3Ccircle cx='74' cy='20' r='7' fill='%23B05A14' opacity='0.45'/%3E%3Ccircle cx='101' cy='20' r='7' fill='%23B05A14' opacity='0.65'/%3E%3Ccircle cx='128' cy='20' r='7' fill='%23B05A14' opacity='0.82'/%3E%3Ccircle cx='155' cy='20' r='7' fill='%23B05A14' opacity='0.95'/%3E%3Ccircle cx='20' cy='47' r='7' fill='%23B05A14' opacity='0.14'/%3E%3Ccircle cx='47' cy='47' r='7' fill='%23B05A14' opacity='0.22'/%3E%3Ccircle cx='74' cy='47' r='7' fill='%23B05A14' opacity='0.38'/%3E%3Ccircle cx='101' cy='47' r='7' fill='%23B05A14' opacity='0.58'/%3E%3Ccircle cx='128' cy='47' r='7' fill='%23B05A14' opacity='0.80'/%3E%3Ccircle cx='155' cy='47' r='7' fill='%23B05A14' opacity='1'/%3E%3Ccircle cx='20' cy='74' r='7' fill='%23B05A14' opacity='0.10'/%3E%3Ccircle cx='47' cy='74' r='7' fill='%23B05A14' opacity='0.18'/%3E%3Ccircle cx='74' cy='74' r='7' fill='%23B05A14' opacity='0.30'/%3E%3Ccircle cx='101' cy='74' r='7' fill='%23B05A14' opacity='0.50'/%3E%3Ccircle cx='128' cy='74' r='7' fill='%23B05A14' opacity='0.72'/%3E%3Ccircle cx='155' cy='74' r='7' fill='%23B05A14' opacity='0.90'/%3E%3Ccircle cx='20' cy='101' r='7' fill='%23B05A14' opacity='0.08'/%3E%3Ccircle cx='47' cy='101' r='7' fill='%23B05A14' opacity='0.14'/%3E%3Ccircle cx='74' cy='101' r='7' fill='%23B05A14' opacity='0.24'/%3E%3Ccircle cx='101' cy='101' r='7' fill='%23B05A14' opacity='0.42'/%3E%3Ccircle cx='128' cy='101' r='7' fill='%23B05A14' opacity='0.60'/%3E%3Ccircle cx='155' cy='101' r='7' fill='%23B05A14' opacity='0.75'/%3E%3Ccircle cx='20' cy='128' r='7' fill='%23B05A14' opacity='0.05'/%3E%3Ccircle cx='47' cy='128' r='7' fill='%23B05A14' opacity='0.10'/%3E%3Ccircle cx='74' cy='128' r='7' fill='%23B05A14' opacity='0.18'/%3E%3Ccircle cx='101' cy='128' r='7' fill='%23B05A14' opacity='0.32'/%3E%3Ccircle cx='128' cy='128' r='7' fill='%23B05A14' opacity='0.48'/%3E%3Ccircle cx='155' cy='128' r='7' fill='%23B05A14' opacity='0.62'/%3E%3C/svg%3E");
+  opacity: 0.09;
+}
+.page-motiq .feature-card:nth-child(2):hover::after { opacity: 0.16; }
+
+/* MotIQ — 3: Health Score — circular progress arc */
+.page-motiq .feature-card:nth-child(3)::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 190 190' fill='none'%3E%3Ccircle cx='95' cy='95' r='72' stroke='%231E3A5F' stroke-width='1.2' stroke-dasharray='5 8' opacity='0.3'/%3E%3Ccircle cx='95' cy='95' r='72' stroke='%231E3A5F' stroke-width='5' stroke-linecap='round' stroke-dasharray='338 452' transform='rotate(-90 95 95)'/%3E%3Ccircle cx='95' cy='95' r='20' fill='%231E3A5F' opacity='0.5'/%3E%3C/svg%3E");
+  width: 180px;
+  height: 180px;
+}
+
+/* MotIQ — 4: Predictive Alarms — ascending chart with threshold line and alert diamond */
+.page-motiq .feature-card:nth-child(4)::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 190 190' fill='none'%3E%3Cline x1='10' y1='155' x2='180' y2='155' stroke='%231E3A5F' stroke-width='1' opacity='0.5'/%3E%3Cline x1='10' y1='115' x2='180' y2='115' stroke='%231E3A5F' stroke-width='0.8' stroke-dasharray='3 6' opacity='0.35'/%3E%3Cline x1='10' y1='72' x2='180' y2='72' stroke='%23B05A14' stroke-width='1.5' stroke-dasharray='8 4' opacity='0.7'/%3E%3Cpolyline points='10,152 45,146 80,134 110,120 135,104 157,82 178,54' stroke='%231E3A5F' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpolygon points='135,92 125,104 135,116 145,104' fill='%23B05A14' opacity='0.75'/%3E%3C/svg%3E");
+}
+
+/* MotIQ — 5: Seamless Integration — signal/wifi arcs (green) */
+.page-motiq .feature-card:nth-child(5)::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 190 190' fill='none'%3E%3Cpath d='M10,182 A122,122 0 0,1 180,182' stroke='%231A6040' stroke-width='2.2' stroke-linecap='round'/%3E%3Cpath d='M35,182 A92,92 0 0,1 155,182' stroke='%231A6040' stroke-width='2' stroke-linecap='round' opacity='0.7'/%3E%3Cpath d='M62,182 A60,60 0 0,1 128,182' stroke='%231A6040' stroke-width='1.8' stroke-linecap='round' opacity='0.5'/%3E%3Cpath d='M82,182 A30,30 0 0,1 108,182' stroke='%231A6040' stroke-width='1.5' stroke-linecap='round' opacity='0.35'/%3E%3Ccircle cx='95' cy='182' r='5' fill='%231A6040' opacity='0.8'/%3E%3C/svg%3E");
+}
+
+/* MotIQ — 6: Motor Control — gear */
+.page-motiq .feature-card:nth-child(6)::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 190 190' fill='none'%3E%3Cg transform='translate(95,95)'%3E%3Ccircle r='52' stroke='%232D3A6B' stroke-width='2.5'/%3E%3Ccircle r='22' stroke='%232D3A6B' stroke-width='2.5'/%3E%3Crect x='-9' y='-70' width='18' height='20' rx='3' fill='%232D3A6B'/%3E%3Crect x='-9' y='-70' width='18' height='20' rx='3' fill='%232D3A6B' transform='rotate(45)'/%3E%3Crect x='-9' y='-70' width='18' height='20' rx='3' fill='%232D3A6B' transform='rotate(90)'/%3E%3Crect x='-9' y='-70' width='18' height='20' rx='3' fill='%232D3A6B' transform='rotate(135)'/%3E%3Crect x='-9' y='-70' width='18' height='20' rx='3' fill='%232D3A6B' transform='rotate(180)'/%3E%3Crect x='-9' y='-70' width='18' height='20' rx='3' fill='%232D3A6B' transform='rotate(225)'/%3E%3Crect x='-9' y='-70' width='18' height='20' rx='3' fill='%232D3A6B' transform='rotate(270)'/%3E%3Crect x='-9' y='-70' width='18' height='20' rx='3' fill='%232D3A6B' transform='rotate(315)'/%3E%3C/g%3E%3C/svg%3E");
+  width: 175px;
+  height: 175px;
+}
+
+/* EHT — 1: Triaxial Vibration — three overlapping X/Y/Z sine waves */
+.page-eht .feature-card:nth-child(1)::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 190 190' fill='none'%3E%3Cpolyline points='0,95 22,95 32,42 46,148 58,52 70,138 82,95 130,95 142,72 154,118 166,95 190,95' stroke='%231A6040' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpolyline points='0,115 22,115 32,62 46,168 58,72 70,158 82,115 120,115' stroke='%231A6040' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' opacity='0.5'/%3E%3Cpolyline points='0,75 22,75 32,22 46,128 58,32 70,118 82,75 120,75' stroke='%231A6040' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+/* EHT — 2: Acoustic Analysis — concentric rings */
+.page-eht .feature-card:nth-child(2)::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 190 190' fill='none'%3E%3Ccircle cx='0' cy='190' r='55' stroke='%231E3A5F' stroke-width='2.2' opacity='1'/%3E%3Ccircle cx='0' cy='190' r='95' stroke='%231E3A5F' stroke-width='1.6' opacity='0.7'/%3E%3Ccircle cx='0' cy='190' r='135' stroke='%231E3A5F' stroke-width='1.2' opacity='0.45'/%3E%3Ccircle cx='0' cy='190' r='175' stroke='%231E3A5F' stroke-width='0.8' opacity='0.25'/%3E%3C/svg%3E");
+}
+
+/* EHT — 3: Temperature Trending — rising curve with baselines */
+.page-eht .feature-card:nth-child(3)::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 190 190' fill='none'%3E%3Cline x1='0' y1='60' x2='190' y2='60' stroke='%23B05A14' stroke-width='0.8' stroke-dasharray='4 7' opacity='0.5'/%3E%3Cline x1='0' y1='105' x2='190' y2='105' stroke='%23B05A14' stroke-width='0.8' stroke-dasharray='4 7' opacity='0.5'/%3E%3Cline x1='0' y1='150' x2='190' y2='150' stroke='%23B05A14' stroke-width='0.8' stroke-dasharray='4 7' opacity='0.5'/%3E%3Cpath d='M0,175 Q50,168 80,140 T130,75 T190,12' stroke='%23B05A14' stroke-width='3' stroke-linecap='round' fill='none'/%3E%3Ccircle cx='190' cy='12' r='6' fill='%23B05A14' opacity='0.85'/%3E%3C/svg%3E");
+}
+
+/* EHT — 4: On-Device ML — neural network */
+.page-eht .feature-card:nth-child(4)::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 190 190' fill='none'%3E%3Cline x1='28' y1='38' x2='90' y2='28' stroke='%232D3A6B' stroke-width='0.9' opacity='0.45'/%3E%3Cline x1='28' y1='38' x2='90' y2='68' stroke='%232D3A6B' stroke-width='0.9' opacity='0.45'/%3E%3Cline x1='28' y1='38' x2='90' y2='110' stroke='%232D3A6B' stroke-width='0.9' opacity='0.3'/%3E%3Cline x1='28' y1='95' x2='90' y2='28' stroke='%232D3A6B' stroke-width='0.9' opacity='0.35'/%3E%3Cline x1='28' y1='95' x2='90' y2='68' stroke='%232D3A6B' stroke-width='0.9' opacity='0.5'/%3E%3Cline x1='28' y1='95' x2='90' y2='110' stroke='%232D3A6B' stroke-width='0.9' opacity='0.5'/%3E%3Cline x1='28' y1='95' x2='90' y2='152' stroke='%232D3A6B' stroke-width='0.9' opacity='0.3'/%3E%3Cline x1='28' y1='152' x2='90' y2='110' stroke='%232D3A6B' stroke-width='0.9' opacity='0.4'/%3E%3Cline x1='28' y1='152' x2='90' y2='152' stroke='%232D3A6B' stroke-width='0.9' opacity='0.45'/%3E%3Cline x1='98' y1='28' x2='162' y2='95' stroke='%232D3A6B' stroke-width='0.9' opacity='0.4'/%3E%3Cline x1='98' y1='68' x2='162' y2='95' stroke='%232D3A6B' stroke-width='0.9' opacity='0.5'/%3E%3Cline x1='98' y1='110' x2='162' y2='95' stroke='%232D3A6B' stroke-width='0.9' opacity='0.5'/%3E%3Cline x1='98' y1='152' x2='162' y2='95' stroke='%232D3A6B' stroke-width='0.9' opacity='0.4'/%3E%3Ccircle cx='28' cy='38' r='8' fill='%232D3A6B' opacity='0.75'/%3E%3Ccircle cx='28' cy='95' r='8' fill='%232D3A6B' opacity='0.75'/%3E%3Ccircle cx='28' cy='152' r='8' fill='%232D3A6B' opacity='0.75'/%3E%3Ccircle cx='90' cy='28' r='7' fill='%232D3A6B' opacity='0.65'/%3E%3Ccircle cx='90' cy='68' r='7' fill='%232D3A6B' opacity='0.65'/%3E%3Ccircle cx='90' cy='110' r='7' fill='%232D3A6B' opacity='0.65'/%3E%3Ccircle cx='90' cy='152' r='7' fill='%232D3A6B' opacity='0.65'/%3E%3Ccircle cx='162' cy='95' r='10' fill='%232D3A6B' opacity='0.85'/%3E%3C/svg%3E");
+}
+
+/* EHT — 5: BMS Integration — teal signal arcs */
+.page-eht .feature-card:nth-child(5)::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 190 190' fill='none'%3E%3Cpath d='M10,182 A122,122 0 0,1 180,182' stroke='%231a7a8c' stroke-width='2.2' stroke-linecap='round'/%3E%3Cpath d='M35,182 A92,92 0 0,1 155,182' stroke='%231a7a8c' stroke-width='2' stroke-linecap='round' opacity='0.7'/%3E%3Cpath d='M62,182 A60,60 0 0,1 128,182' stroke='%231a7a8c' stroke-width='1.8' stroke-linecap='round' opacity='0.5'/%3E%3Cpath d='M82,182 A30,30 0 0,1 108,182' stroke='%231a7a8c' stroke-width='1.5' stroke-linecap='round' opacity='0.35'/%3E%3Ccircle cx='95' cy='182' r='5' fill='%231a7a8c' opacity='0.8'/%3E%3C/svg%3E");
+}
+
+/* EHT — 6: Compact & Wireless — sensor cylinder with signal rings */
+.page-eht .feature-card:nth-child(6)::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 190 190' fill='none'%3E%3Crect x='70' y='112' width='50' height='62' rx='8' stroke='%232D3A6B' stroke-width='2.5'/%3E%3Cellipse cx='95' cy='112' rx='25' ry='8' stroke='%232D3A6B' stroke-width='2.5'/%3E%3Cpath d='M76,104 Q95,80 114,104' stroke='%232D3A6B' stroke-width='1.8' fill='none' stroke-linecap='round' opacity='0.75'/%3E%3Cpath d='M60,94 Q95,56 130,94' stroke='%232D3A6B' stroke-width='1.4' fill='none' stroke-linecap='round' opacity='0.5'/%3E%3Cpath d='M45,84 Q95,32 145,84' stroke='%232D3A6B' stroke-width='1' fill='none' stroke-linecap='round' opacity='0.3'/%3E%3C/svg%3E");
+  width: 175px;
+  height: 175px;
+}
+
+/* ============================================================
    GLASS CARDS (dashboard)
    ============================================================ */
 .glass {

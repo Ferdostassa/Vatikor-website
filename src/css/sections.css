@@ -643,8 +643,59 @@
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.6s var(--ease-out);
+  overflow: hidden;
 }
 .audience__slot.is-active { opacity: 1; }
+
+/* Shared watermark backdrop for each use-case slot */
+.audience__slot::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 220px;
+  height: 220px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top right;
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 0;
+}
+.audience__slot > * { position: relative; z-index: 1; }
+
+/* 0: Water & Wastewater — wave lines */
+.audience__slot[data-index="0"]::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 280 200' fill='none'%3E%3Cpath d='M0,80 C35,60 70,100 105,80 S175,60 210,80 S280,100 315,80' stroke='%231E3A5F' stroke-width='2.5' stroke-linecap='round'/%3E%3Cpath d='M0,110 C35,90 70,130 105,110 S175,90 210,110 S280,130 315,110' stroke='%231E3A5F' stroke-width='2' stroke-linecap='round' opacity='0.65'/%3E%3Cpath d='M0,140 C35,120 70,160 105,140 S175,120 210,140 S280,160 315,140' stroke='%231E3A5F' stroke-width='1.5' stroke-linecap='round' opacity='0.38'/%3E%3Cpath d='M0,50 C35,30 70,70 105,50 S175,30 210,50 S280,70 315,50' stroke='%231E3A5F' stroke-width='1' stroke-linecap='round' opacity='0.2'/%3E%3C/svg%3E");
+  width: 280px;
+  height: 200px;
+}
+
+/* 1: HVAC & Commercial Buildings — fan blades */
+.audience__slot[data-index="1"]::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220' fill='none'%3E%3Ccircle cx='110' cy='110' r='90' stroke='%231E3A5F' stroke-width='1.5' opacity='0.3'/%3E%3Cellipse cx='110' cy='55' rx='18' ry='45' fill='%231E3A5F' opacity='0.55' transform='rotate(0 110 110)'/%3E%3Cellipse cx='110' cy='55' rx='18' ry='45' fill='%231E3A5F' opacity='0.55' transform='rotate(90 110 110)'/%3E%3Cellipse cx='110' cy='55' rx='18' ry='45' fill='%231E3A5F' opacity='0.55' transform='rotate(180 110 110)'/%3E%3Cellipse cx='110' cy='55' rx='18' ry='45' fill='%231E3A5F' opacity='0.55' transform='rotate(270 110 110)'/%3E%3Ccircle cx='110' cy='110' r='20' fill='%231E3A5F' opacity='0.75'/%3E%3C/svg%3E");
+}
+
+/* 2: Manufacturing — interlocking gears */
+.audience__slot[data-index="2"]::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 220' fill='none'%3E%3Cg transform='translate(80,105)'%3E%3Ccircle r='42' stroke='%231E3A5F' stroke-width='2.2'/%3E%3Ccircle r='16' stroke='%231E3A5F' stroke-width='2.2'/%3E%3Crect x='-7' y='-56' width='14' height='17' rx='2.5' fill='%231E3A5F'/%3E%3Crect x='-7' y='-56' width='14' height='17' rx='2.5' fill='%231E3A5F' transform='rotate(45)'/%3E%3Crect x='-7' y='-56' width='14' height='17' rx='2.5' fill='%231E3A5F' transform='rotate(90)'/%3E%3Crect x='-7' y='-56' width='14' height='17' rx='2.5' fill='%231E3A5F' transform='rotate(135)'/%3E%3Crect x='-7' y='-56' width='14' height='17' rx='2.5' fill='%231E3A5F' transform='rotate(180)'/%3E%3Crect x='-7' y='-56' width='14' height='17' rx='2.5' fill='%231E3A5F' transform='rotate(225)'/%3E%3Crect x='-7' y='-56' width='14' height='17' rx='2.5' fill='%231E3A5F' transform='rotate(270)'/%3E%3Crect x='-7' y='-56' width='14' height='17' rx='2.5' fill='%231E3A5F' transform='rotate(315)'/%3E%3C/g%3E%3Cg transform='translate(160,105)'%3E%3Ccircle r='26' stroke='%231E3A5F' stroke-width='1.8'/%3E%3Ccircle r='10' stroke='%231E3A5F' stroke-width='1.8'/%3E%3Crect x='-5' y='-34' width='10' height='12' rx='2' fill='%231E3A5F'/%3E%3Crect x='-5' y='-34' width='10' height='12' rx='2' fill='%231E3A5F' transform='rotate(60)'/%3E%3Crect x='-5' y='-34' width='10' height='12' rx='2' fill='%231E3A5F' transform='rotate(120)'/%3E%3Crect x='-5' y='-34' width='10' height='12' rx='2' fill='%231E3A5F' transform='rotate(180)'/%3E%3Crect x='-5' y='-34' width='10' height='12' rx='2' fill='%231E3A5F' transform='rotate(240)'/%3E%3Crect x='-5' y='-34' width='10' height='12' rx='2' fill='%231E3A5F' transform='rotate(300)'/%3E%3C/g%3E%3C/svg%3E");
+  width: 240px;
+  height: 220px;
+}
+
+/* 3: Compressed Air — flow lines converging to a point */
+.audience__slot[data-index="3"]::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 200' fill='none'%3E%3Cpath d='M10,20 Q90,20 120,100' stroke='%231E3A5F' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M10,55 Q90,55 120,100' stroke='%231E3A5F' stroke-width='1.8' stroke-linecap='round' opacity='0.75'/%3E%3Cpath d='M10,90 Q90,90 120,100' stroke='%231E3A5F' stroke-width='1.5' stroke-linecap='round' opacity='0.55'/%3E%3Cpath d='M10,110 Q90,110 120,100' stroke='%231E3A5F' stroke-width='1.5' stroke-linecap='round' opacity='0.55'/%3E%3Cpath d='M10,145 Q90,145 120,100' stroke='%231E3A5F' stroke-width='1.8' stroke-linecap='round' opacity='0.75'/%3E%3Cpath d='M10,180 Q90,180 120,100' stroke='%231E3A5F' stroke-width='2' stroke-linecap='round'/%3E%3Ccircle cx='120' cy='100' r='9' fill='%231E3A5F' opacity='0.65'/%3E%3Cpath d='M120,100 Q160,80 230,60' stroke='%231E3A5F' stroke-width='2.2' stroke-linecap='round'/%3E%3Cpath d='M120,100 Q160,100 230,100' stroke='%231E3A5F' stroke-width='2' stroke-linecap='round' opacity='0.7'/%3E%3Cpath d='M120,100 Q160,120 230,140' stroke='%231E3A5F' stroke-width='1.8' stroke-linecap='round' opacity='0.45'/%3E%3C/svg%3E");
+  width: 240px;
+  height: 200px;
+}
+
+/* 4: General Induction Motors — motor cross-section */
+.audience__slot[data-index="4"]::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' fill='none'%3E%3Ccircle cx='100' cy='100' r='85' stroke='%231E3A5F' stroke-width='2.5'/%3E%3Ccircle cx='100' cy='100' r='68' stroke='%231E3A5F' stroke-width='1.2' stroke-dasharray='5 4'/%3E%3Ccircle cx='100' cy='100' r='46' stroke='%231E3A5F' stroke-width='2'/%3E%3Cline x1='100' y1='54' x2='100' y2='66' stroke='%231E3A5F' stroke-width='2.2'/%3E%3Cline x1='100' y1='54' x2='100' y2='66' stroke='%231E3A5F' stroke-width='2.2' transform='rotate(30 100 100)'/%3E%3Cline x1='100' y1='54' x2='100' y2='66' stroke='%231E3A5F' stroke-width='2.2' transform='rotate(60 100 100)'/%3E%3Cline x1='100' y1='54' x2='100' y2='66' stroke='%231E3A5F' stroke-width='2.2' transform='rotate(90 100 100)'/%3E%3Cline x1='100' y1='54' x2='100' y2='66' stroke='%231E3A5F' stroke-width='2.2' transform='rotate(120 100 100)'/%3E%3Cline x1='100' y1='54' x2='100' y2='66' stroke='%231E3A5F' stroke-width='2.2' transform='rotate(150 100 100)'/%3E%3Cline x1='100' y1='54' x2='100' y2='66' stroke='%231E3A5F' stroke-width='2.2' transform='rotate(180 100 100)'/%3E%3Cline x1='100' y1='54' x2='100' y2='66' stroke='%231E3A5F' stroke-width='2.2' transform='rotate(210 100 100)'/%3E%3Cline x1='100' y1='54' x2='100' y2='66' stroke='%231E3A5F' stroke-width='2.2' transform='rotate(240 100 100)'/%3E%3Cline x1='100' y1='54' x2='100' y2='66' stroke='%231E3A5F' stroke-width='2.2' transform='rotate(270 100 100)'/%3E%3Cline x1='100' y1='54' x2='100' y2='66' stroke='%231E3A5F' stroke-width='2.2' transform='rotate(300 100 100)'/%3E%3Cline x1='100' y1='54' x2='100' y2='66' stroke='%231E3A5F' stroke-width='2.2' transform='rotate(330 100 100)'/%3E%3Ccircle cx='100' cy='100' r='13' stroke='%231E3A5F' stroke-width='2'/%3E%3Ccircle cx='100' cy='100' r='5' fill='%231E3A5F' opacity='0.7'/%3E%3C/svg%3E");
+  width: 200px;
+  height: 200px;
+}
 .audience__sector {
   font-family: var(--f-mono);
   font-size: var(--fs-xs);
