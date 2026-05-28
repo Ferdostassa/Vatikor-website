@@ -205,7 +205,7 @@
       {
         "id": "stats",
         "headline": "What early detection is worth.",
-        "body_short": "Small preventive actions outperform large emergency responses, every time.",
+        "body_short": "Small predictive actions outperform large emergency responses, every time.",
         "body_long": "A 30 kW motor running 6,000 hours per year at a 5% avoidable loss is 9,000 kWh wasted, about $1,080 per asset, per year. Across ten assets, $10,800. Across a fleet, it compounds.",
         "animation_cue": "Numbers count up from zero as the bar enters view."
       },
