@@ -13,7 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 /* ── ThermRack content ──────────────────────────────────────── */
 const thermalrackContent = {
-  product_name: 'ThermRack™',
+  product_name: 'ThermRack',
   vendor: 'Vatikor',
   vendor_location: 'Ontario, Canada',
   contact: 'Sales@vatikor.ca',

@@ -83,31 +83,68 @@
   text-align: center;
   padding: var(--sp-6) var(--sp-2);
   background: var(--surface);
-  border: 1px solid var(--line-strong);
+  border: 1.5px solid var(--line-strong);
   border-radius: var(--r-md);
   text-decoration: none;
   color: var(--ink);
   overflow: hidden;
-  transition: border-color 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out), transform 0.25s var(--ease-out);
+  transition: background 0.3s var(--ease-out), border-color 0.3s var(--ease-out),
+              box-shadow 0.3s var(--ease-out), transform 0.28s var(--ease-out);
   cursor: pointer;
   min-height: 240px;
 }
-.product-entry:hover {
-  border-color: var(--accent);
-  box-shadow: 0 8px 28px rgba(13, 13, 13, 0.08);
-  transform: translateY(-2px);
+
+/* Per-product light tint backgrounds (normal state) */
+.product-entry--motiq       { background: #EDF2FA; border-color: rgba(30,58,95,0.25); }
+.product-entry--eht         { background: #EAF5EF; border-color: rgba(30,110,65,0.25); }
+.product-entry--thermalrack { background: #E8F4F7; border-color: rgba(26,122,140,0.25); }
+
+/* Colored product names (normal state) */
+.product-entry--motiq .product-entry__name       { color: #1E3A5F; }
+.product-entry--eht .product-entry__name         { color: #1E6E41; }
+.product-entry--thermalrack .product-entry__name { color: #1a7a8c; }
+
+/* Colored CTA links (normal state) */
+.product-entry--motiq .product-entry__cta       { color: #1E3A5F; }
+.product-entry--eht .product-entry__cta         { color: #1E6E41; }
+.product-entry--thermalrack .product-entry__cta { color: #1a7a8c; }
+
+/* === HOVER: card fills with product color, text inverts to white === */
+.product-entry--motiq:hover {
+  background: #1E3A5F; border-color: #1E3A5F;
+  transform: translateY(-5px);
+  box-shadow: 0 18px 44px rgba(30,58,95,0.30);
 }
-.product-entry:hover .product-entry__arrow { transform: translateX(4px); }
+.product-entry--eht:hover {
+  background: #1E6E41; border-color: #1E6E41;
+  transform: translateY(-5px);
+  box-shadow: 0 18px 44px rgba(30,110,65,0.30);
+}
+.product-entry--thermalrack:hover {
+  background: #1a7a8c; border-color: #1a7a8c;
+  transform: translateY(-5px);
+  box-shadow: 0 18px 44px rgba(26,122,140,0.30);
+}
+
+/* All text turns white on hover */
+.product-entry:hover .product-entry__name,
+.product-entry:hover .product-entry__tagline,
+.product-entry:hover .product-entry__desc,
+.product-entry:hover .product-entry__eyebrow,
+.product-entry:hover .product-entry__benefits li,
+.product-entry:hover .product-entry__cta { color: #ffffff; }
+
+.product-entry:hover .product-entry__arrow { transform: translateX(6px); }
 
 .product-entry__accent {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 2px;
+  height: 5px;
 }
-.product-entry__accent--motiq { background: var(--accent); }
-.product-entry__accent--eht { background: var(--warm); }
+.product-entry__accent--motiq       { background: #1E3A5F; }
+.product-entry__accent--eht         { background: #1E6E41; }
 .product-entry__accent--thermalrack { background: #1a7a8c; }
 
 .home-hero__products--three {
