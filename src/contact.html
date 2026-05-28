@@ -54,7 +54,15 @@
       </div>
 
       <div class="contact-page__right">
-        <form class="contact-form" action="mailto:Sales@vatikor.ca" method="post" enctype="text/plain" novalidate>
+        <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" novalidate id="contact-form">
+
+          <input type="hidden" name="access_key" value="2f97843e-4251-47d2-af02-4c1a26fe1d18" />
+          <input type="hidden" name="subject" value="New enquiry from Vatikor.ca" />
+          <input type="hidden" name="from_name" value="Vatikor Website" />
+          <input type="hidden" name="redirect" value="false" />
+
+          <div id="form-result" class="contact-form__result" aria-live="polite" hidden></div>
+
           <div class="contact-form__row">
             <div class="contact-form__field">
               <label class="contact-form__label" for="f-name">Name</label>
@@ -84,14 +92,48 @@
             <label class="contact-form__label" for="f-message">Message</label>
             <textarea class="contact-form__input contact-form__textarea" id="f-message" name="message" rows="5" placeholder="Tell us about your facility, your equipment, and what you're trying to solve…"></textarea>
           </div>
-          <button class="btn contact-form__submit" type="submit">
-            <span>Send Message</span>
+          <button class="btn contact-form__submit" type="submit" id="form-submit-btn">
+            <span id="form-btn-text">Send Message</span>
             <span class="btn__arrow" aria-hidden="true">→</span>
           </button>
           <p class="contact-form__note">
             Or email us directly at <a href="mailto:Sales@vatikor.ca">Sales@vatikor.ca</a>
           </p>
         </form>
+
+        <script>
+          const form = document.getElementById('contact-form');
+          const btn  = document.getElementById('form-submit-btn');
+          const btnText = document.getElementById('form-btn-text');
+          const result = document.getElementById('form-result');
+
+          form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            btn.disabled = true;
+            btnText.textContent = 'Sending…';
+            result.hidden = true;
+            result.className = 'contact-form__result';
+
+            const data = new FormData(form);
+            try {
+              const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+              const json = await res.json();
+              if (json.success) {
+                result.textContent = 'Message sent. We\'ll be in touch within one business day.';
+                result.classList.add('contact-form__result--ok');
+                form.reset();
+              } else {
+                throw new Error(json.message);
+              }
+            } catch (err) {
+              result.textContent = 'Something went wrong. Please email us directly at Sales@vatikor.ca';
+              result.classList.add('contact-form__result--err');
+              btn.disabled = false;
+              btnText.textContent = 'Send Message';
+            }
+            result.hidden = false;
+          });
+        </script>
       </div>
 
     </div>

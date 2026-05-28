@@ -411,8 +411,8 @@
       },
       {
         "id": "reveal",
-        "headline": "One sensor. Three dimensions of intelligence.",
-        "body_short": "By analysing vibration, sound, and temperature simultaneously, EHT distinguishes a real developing fault from normal variation, delivering confident early warnings weeks before a traditional alarm triggers.",
+        "headline": "3 Sensors. One Device.",
+        "body_short": "Vibration, sound, and temperature — measured simultaneously and analysed together by on-device machine learning. Each signal sees what the others miss. Together, they catch faults that no single sensor ever could.",
         "body_long": "Traditional vibration monitors measure one signal and compare it to a threshold. EHT reads vibration, acoustic emission, and temperature together, correlating how they change in relationship to each other over time. That is how patterns invisible to individual sensors become detectable.",
         "animation_cue": "Camera orbits the sensor while callouts highlight each sensing surface."
       },
@@ -494,8 +494,8 @@
     ],
     "callouts": [
       {
-        "title": "Triaxial Vibration Sensor",
-        "detail": "High accuracy 3-axis accelerometer. Captures X, Y and Z motor vibration.",
+        "title": "Triaxial Vibration — X · Y · Z",
+        "detail": "Three-axis accelerometer captures vibration in all directions simultaneously. Detects imbalance, misalignment, looseness, and bearing wear from the machine surface — no electrical access required.",
         "anchor_offset": [
           0.35,
           0.05,
@@ -503,8 +503,8 @@
         ]
       },
       {
-        "title": "High-Frequency Acoustic Sensor",
-        "detail": "Wide-band acoustic sensor that detects developing faults in advance.",
+        "title": "Wide-Band Acoustic Sensor",
+        "detail": "High-frequency acoustic emission picks up cavitation in pumps, bearing surface defects, and early gear mesh anomalies — often weeks before vibration thresholds are breached.",
         "anchor_offset": [
           0.38,
           0.1,
@@ -512,8 +512,8 @@
         ]
       },
       {
-        "title": "Precision Temperature Sensor",
-        "detail": "High accuracy thermal probe tracking surface temperature.",
+        "title": "Surface Temperature Probe",
+        "detail": "Precision thermal sensor tracks bearing housing and casing temperature. Rising temperature combined with changing vibration or sound patterns is a key early-fault signature.",
         "anchor_offset": [
           -0.38,
           0.0,
@@ -521,8 +521,8 @@
         ]
       },
       {
-        "title": "BMS & SCADA Output",
-        "detail": "Processed health indications delivered directly to BMS or SCADA systems.",
+        "title": "On-Device ML Processing",
+        "detail": "All three signals are analysed together on the sensor itself — no cloud, no raw data stream. EHT delivers a health score, fault type, and severity directly to your BMS.",
         "anchor_offset": [
           0.0,
           0.42,
@@ -530,8 +530,8 @@
         ]
       },
       {
-        "title": "Mounting Kit",
-        "detail": "Precision mounting kit for secure installation directly onto motor surfaces.",
+        "title": "Direct BMS Integration",
+        "detail": "Wireless output connects to your existing building management or SCADA system. Maintenance teams see actionable condition status — not raw sensor data — exactly where they already work.",
         "anchor_offset": [
           0.0,
           -0.42,

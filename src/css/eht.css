@@ -1295,14 +1295,8 @@
 
 /* eht-intel-section removed — diagram is now inside eht-reveal-intro */
 
-/* Hide reveal step labels (01 · Vibration array etc.) */
-#reveal-steps { display: none; }
-
-/* Hide callout counter badges (01 / 04 etc.) */
-.callout__num { display: none; }
-
-/* Hide old reveal header (replaced by eht-reveal-intro) */
-.reveal__header { display: none; }
+/* callout counter badges visible */
+.callout__num { display: block; }
 
 /* ============================================================
    EHT BMS MONITOR TABLE
@@ -1498,3 +1492,59 @@
 .eht-dashboard-section .dash-head__title   { color: var(--ink); }
 .eht-dashboard-section .dash-head__sub     { color: var(--ink-soft); }
 .eht-dashboard-section .dash-twin-sub      { color: var(--ink-soft); }
+
+/* ============================================================
+   EHT SENSOR CARDS — Three Signals section
+   ============================================================ */
+.eht-sensors-section { padding-top: var(--sp-10); }
+
+.eht-sensors-grid { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 1100px) { .eht-sensors-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px)  { .eht-sensors-grid { grid-template-columns: 1fr; } }
+
+/* Per-card accent color via CSS variable */
+.eht-sensor-card .feature-card__num {
+  color: var(--sensor-color);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  font-size: 0.72rem;
+}
+
+.eht-sensor-card__icon {
+  color: var(--sensor-color) !important;
+  width: 48px !important;
+  height: 48px !important;
+}
+
+.eht-sensor-card::before {
+  background: var(--sensor-color) !important;
+}
+
+.eht-sensor-card:hover {
+  background: color-mix(in srgb, var(--sensor-color) 4%, var(--surface));
+}
+
+.eht-sensor-card__detects {
+  list-style: none;
+  padding: 0;
+  margin: var(--sp-5) 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.eht-sensor-card__detects li {
+  font-size: 0.78rem;
+  font-family: var(--f-mono);
+  color: var(--sensor-color);
+  padding-left: 1rem;
+  position: relative;
+  opacity: 0.85;
+}
+
+.eht-sensor-card__detects li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  opacity: 0.6;
+}
