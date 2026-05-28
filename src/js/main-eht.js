@@ -9,7 +9,7 @@ import { initHero } from './hero.js';
 import { initAssembly } from './assembly.js';
 import { initEhtDashboard } from './eht-dashboard.js';
 import { initCounters } from './counter.js';
-// audience.js removed — content merged into Applications section
+// audience.js removed, content merged into Applications section
 import { initClosing } from './closing.js';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -174,5 +174,5 @@ document.body.classList.add('no-scroll');
 boot().catch((err) => {
   console.error('EHT boot failure:', err);
   const loaderText = document.getElementById('loader-text');
-  if (loaderText) loaderText.textContent = 'Failed to load — check console';
+  if (loaderText) loaderText.textContent = 'Failed to load, check console';
 });

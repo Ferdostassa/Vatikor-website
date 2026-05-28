@@ -1,6 +1,6 @@
 /**
  * main-thermalrack.js
- * Boot script for thermalrack.html — no Three.js / no loader
+ * Boot script for thermalrack.html, no Three.js / no loader
  */
 
 import { gsap } from 'gsap';
@@ -33,11 +33,11 @@ const thermalrackContent = {
     href: './contact.html',
   },
 
-  /* Core features — rendered into #feature-grid by renderFeatures() */
+  /* Core features, rendered into #feature-grid by renderFeatures() */
   core_features: [
     {
       title: 'Easy Installation',
-      short_description: 'Magnetic mount — install in minutes without tools or downtime. No cabling beyond a single PoE connection per camera.',
+      short_description: 'Magnetic mount, install in minutes without tools or downtime. No cabling beyond a single PoE connection per camera.',
     },
     {
       title: 'Power over Ethernet',
@@ -49,7 +49,7 @@ const thermalrackContent = {
     },
     {
       title: 'Local Data Storage',
-      short_description: 'Full thermal history stored on-premise on the edge computer. Your data, your control — no third-party retention.',
+      short_description: 'Full thermal history stored on-premise on the edge computer. Your data, your control, no third-party retention.',
     },
     {
       title: 'BMS Integration',
@@ -57,11 +57,11 @@ const thermalrackContent = {
     },
     {
       title: 'Wireless Camera Network',
-      short_description: 'Multiple thermal cameras connect wirelessly to a single gateway — scalable from a single server room to a full multi-row data center.',
+      short_description: 'Multiple thermal cameras connect wirelessly to a single gateway, scalable from a single server room to a full multi-row data center.',
     },
   ],
 
-  /* Sections — used by renderFeatures, renderAudience */
+  /* Sections, used by renderFeatures, renderAudience */
   sections: [
     {
       id: 'features',
@@ -71,11 +71,11 @@ const thermalrackContent = {
     {
       id: 'audience',
       headline: 'Where ThermRack Is Deployed',
-      body_long: 'From single server rooms to enterprise-scale multi-row data centers — ThermRack scales to any rack environment.',
+      body_long: 'From single server rooms to enterprise-scale multi-row data centers, ThermRack scales to any rack environment.',
     },
   ],
 
-  /* Use cases — rendered into #audience-stage by renderAudience() */
+  /* Use cases, rendered into #audience-stage by renderAudience() */
   use_cases: [
     {
       sector: 'Enterprise Data Centers',
@@ -87,7 +87,7 @@ const thermalrackContent = {
     },
     {
       sector: 'Edge & Server Rooms',
-      detail: 'Compact deployments in IT closets and branch server rooms where rack cooling is managed manually — ThermRack makes thermal anomalies visible before equipment fails.',
+      detail: 'Compact deployments in IT closets and branch server rooms where rack cooling is managed manually, ThermRack makes thermal anomalies visible before equipment fails.',
     },
     {
       sector: 'Healthcare & Critical Infrastructure',
@@ -103,7 +103,7 @@ async function boot() {
   renderFeatures(thermalrackContent);
   renderAudience(thermalrackContent);
 
-  // Smooth scroll — Lenis
+  // Smooth scroll, Lenis
   const lenis = new Lenis({
     duration: 1.1,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -128,7 +128,7 @@ async function boot() {
     },
   });
 
-  // Nav — ThermRack has no loader, show nav immediately
+  // Nav, ThermRack has no loader, show nav immediately
   const nav = document.getElementById('nav');
   if (nav) {
     nav.classList.add('is-visible');
@@ -145,7 +145,7 @@ async function boot() {
   // Audience cycling
   initAudience();
 
-  // Scroll reveals — fade-up for .tr-reveal elements
+  // Scroll reveals, fade-up for .tr-reveal elements
   gsap.utils.toArray('.tr-reveal').forEach((el) => {
     gsap.to(el, {
       opacity: 1,
