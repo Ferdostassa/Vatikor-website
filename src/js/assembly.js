@@ -148,21 +148,19 @@ export function initAssembly({ pivot, camera, bbox, size, renderer, callouts }) 
   // RAF hook
   const canvas = renderer.domElement;
   function frameUpdate() {
-    // apply opacity
+    // determine whether the reveal section is actively pinned in the viewport
+    const rect = revealSection.getBoundingClientRect();
+    const active = rect.top <= 0 && rect.bottom >= window.innerHeight;
+
+    // apply opacity — hide model entirely when section is not active
+    const targetOpacity = active ? state.opacity : 0;
     pivot.traverse((o) => {
       if (o.isMesh && o.material) {
-        if (o.material.opacity !== state.opacity) {
-          o.material.opacity = state.opacity;
+        if (o.material.opacity !== targetOpacity) {
+          o.material.opacity = targetOpacity;
         }
       }
     });
-
-    // Only drive camera when reveal section is "active"
-    // We use the scrollTrigger-driven progress to know whether to override
-    const st = ScrollTrigger.getById('_assemblyTrigger');
-    // fallback — just check if section is in view
-    const rect = revealSection.getBoundingClientRect();
-    const active = rect.top <= 0 && rect.bottom >= window.innerHeight;
 
     if (active) {
       const d = state.camDist;
