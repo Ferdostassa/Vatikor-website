@@ -155,14 +155,7 @@
   transform-origin: left;
 }
 .reveal__steps {
-  position: absolute;
-  bottom: calc(var(--sp-7) + 14px);
-  left: var(--gutter);
-  right: var(--gutter);
-  display: flex;
-  justify-content: space-between;
-  z-index: 4;
-  pointer-events: none;
+  display: none;
 }
 .reveal__step {
   font-family: var(--f-mono);
