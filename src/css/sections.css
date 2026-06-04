@@ -86,7 +86,7 @@
    ============================================================ */
 .reveal {
   position: relative;
-  height: 500vh; /* tall section for pinned scroll */
+  height: 700vh; /* tall section for pinned scroll */
 }
 .reveal__pin {
   position: relative;

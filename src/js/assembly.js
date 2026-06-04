@@ -147,18 +147,33 @@ export function initAssembly({ pivot, camera, bbox, size, renderer, callouts }) 
 
   // RAF hook
   const canvas = renderer.domElement;
+  let _prevActive = false;
+  let _exitTween = null;
+
   function frameUpdate() {
     // determine whether the reveal section is actively pinned in the viewport
     const rect = revealSection.getBoundingClientRect();
     const active = rect.top <= 0 && rect.bottom >= window.innerHeight;
 
-    // apply opacity — hide model entirely when section is not active
-    const targetOpacity = active ? state.opacity : 0;
+    // When leaving the section, fade the model out over ~1 s instead of cutting
+    if (_prevActive && !active) {
+      if (_exitTween) _exitTween.kill();
+      _exitTween = gsap.to(state, {
+        opacity: 0,
+        duration: 1.0,
+        ease: 'power2.in',
+      });
+    }
+    // When re-entering (scrolling back up), cancel any exit tween
+    if (!_prevActive && active) {
+      if (_exitTween) { _exitTween.kill(); _exitTween = null; }
+    }
+    _prevActive = active;
+
+    // apply opacity — use state.opacity whether active or fading out
     pivot.traverse((o) => {
-      if (o.isMesh && o.material) {
-        if (o.material.opacity !== targetOpacity) {
-          o.material.opacity = targetOpacity;
-        }
+      if (o.isMesh && o.material && o.material.opacity !== state.opacity) {
+        o.material.opacity = state.opacity;
       }
     });
 
