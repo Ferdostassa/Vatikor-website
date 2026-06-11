@@ -8,7 +8,7 @@
 /* Matches EHT page-hero pattern: compact top-aligned layout */
 .thermalrack-hero {
   background-image: url('/assets/images/homepage-heading-bg.png');
-  background-size: 100% auto;
+  background-size: cover;
   background-position: center 68px;
   background-repeat: no-repeat;
   background-color: var(--bg);
@@ -21,7 +21,7 @@
 
 .thermalrack-hero .hero__content {
   padding-top: 6.5rem;   /* clear the fixed nav (~66px) + breathing room */
-  padding-bottom: var(--sp-6);
+  padding-bottom: calc(var(--sp-6) - 20px);
 }
 
 /* Center the hero content */
