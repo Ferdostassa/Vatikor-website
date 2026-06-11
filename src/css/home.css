@@ -12,8 +12,8 @@
   justify-content: flex-end;
   overflow: hidden;
   background-image: url('/assets/images/homepage-heading-bg.png');
-  background-size: 104% auto;
-  background-position: center 68px;
+  background-size: 110% auto;
+  background-position: center top;
   background-repeat: no-repeat;
   background-color: #0C1B30;
 }
