@@ -64,10 +64,10 @@
 /* MotIQ hero — matches EHT page-hero layout: compact, top-aligned */
 .motiq-hero {
   background-image: url('/assets/images/homepage-heading-bg.png');
-  background-size: cover;
+  background-size: 104% auto;
   background-position: center 68px;
   background-repeat: no-repeat;
-  background-color: var(--bg);
+  background-color: #0C1B30;
   align-items: flex-start !important;
   height: auto !important;
   min-height: 0 !important;
@@ -76,8 +76,8 @@
 
 
 .motiq-hero .hero__content {
-  padding-top: 6.5rem;
-  padding-bottom: calc(var(--sp-6) - 20px);
+  padding-top: 6rem;
+  padding-bottom: 0;
 }
 
 /* Accent word inside MotIQ hero heading — uses brand orange */
