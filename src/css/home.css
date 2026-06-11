@@ -38,20 +38,35 @@
   gap: var(--sp-9);
 }
 
-/* Positioning statement block */
+/* Positioning statement block — image background box */
 .home-hero__intro {
+  position: relative;
   width: 100%;
+  max-width: 780px;
+  margin: 0 auto;
   text-align: center;
+  background-image: url('/assets/images/homepage-heading-bg.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  padding: clamp(2rem, 4vw, 3.25rem) clamp(1.5rem, 5vw, 4rem);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.35);
+  overflow: hidden;
 }
 
-.home-hero__eyebrow { margin-bottom: var(--sp-5); }
+.home-hero__eyebrow {
+  margin-bottom: var(--sp-5);
+  color: rgba(255,255,255,0.45);
+}
 
 .home-hero__headline {
   margin-bottom: var(--sp-5);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.08em;
+  gap: 0.1em;
+  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+  color: #ffffff;
 }
 
 .home-word { display: inline-block; }
@@ -67,8 +82,8 @@
 
 .home-hero__cursor {
   display: inline-block;
-  width: 3px;
-  height: 0.75em;
+  width: 2px;
+  height: 0.72em;
   background: var(--warm);
   vertical-align: middle;
   margin-left: 3px;
@@ -82,10 +97,12 @@
 }
 
 .home-hero__sub {
-  font-size: clamp(1rem, 1.5vw, 1.2rem);
-  line-height: 1.6;
-  color: var(--ink-soft);
-  max-width: 100%;
+  position: relative;
+  font-size: clamp(0.9rem, 1.3vw, 1.05rem);
+  line-height: 1.65;
+  color: rgba(255,255,255,0.55);
+  max-width: 58ch;
+  margin: 0 auto;
 }
 
 .home-hero__products {
