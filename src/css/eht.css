@@ -242,6 +242,62 @@
   padding-bottom: 0;
 }
 
+/* ── EHT HERO BENEFIT CARDS ─────────────────────────────────── */
+.eht-cap--orange { --cap-color: #C86A3C; --cap-bg: rgba(200,106,60,0.06);  --cap-border: rgba(200,106,60,0.22); }
+.eht-cap--green  { --cap-color: #2ea87c; --cap-bg: rgba(46,168,124,0.06); --cap-border: rgba(46,168,124,0.22); }
+.eht-cap--blue   { --cap-color: #2d6fa8; --cap-bg: rgba(45,111,168,0.06); --cap-border: rgba(45,111,168,0.22); }
+.eht-cap--red    { --cap-color: #d45040; --cap-bg: rgba(212,80,64,0.06);  --cap-border: rgba(212,80,64,0.22); }
+
+.eht-caps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-4);
+  margin-top: var(--sp-6);
+  width: 100%;
+  max-width: 860px;
+}
+
+.eht-cap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--sp-3);
+  border: 1.5px solid var(--cap-border, var(--line-strong));
+  border-radius: var(--r-md);
+  padding: var(--sp-5) var(--sp-4);
+  background: var(--cap-bg, var(--surface));
+  transition: transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
+  cursor: default;
+}
+
+.eht-cap:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.10);
+}
+
+.eht-cap__icon {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  color: var(--cap-color, var(--ink-soft));
+}
+
+.eht-cap span {
+  font-family: var(--f-sans);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--cap-color, var(--ink));
+}
+
+@media (max-width: 700px) {
+  .eht-caps { grid-template-columns: repeat(2, 1fr); gap: var(--sp-3); }
+}
+@media (max-width: 400px) {
+  .eht-caps { grid-template-columns: 1fr; }
+}
+
 /* Center the hero content on EHT page */
 #hero .hero__content .container {
   display: flex;
