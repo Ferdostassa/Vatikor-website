@@ -10,6 +10,7 @@
   background-image: url('/assets/images/homepage-heading-bg.png');
   background-size: cover;
   background-position: center 68px;
+  background-repeat: no-repeat;
   background-color: var(--bg);
   align-items: flex-start !important;
   height: auto !important;
