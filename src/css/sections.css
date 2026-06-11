@@ -64,7 +64,7 @@
 /* MotIQ hero — matches EHT page-hero layout: compact, top-aligned */
 .motiq-hero {
   background-image: url('/assets/images/homepage-heading-bg.png');
-  background-size: cover;
+  background-size: 100% auto;
   background-position: center 68px;
   background-repeat: no-repeat;
   background-color: var(--bg);
