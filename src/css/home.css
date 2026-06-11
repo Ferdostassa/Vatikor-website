@@ -18,6 +18,18 @@
   background-color: #0C1B30;
 }
 
+.home-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to bottom, transparent, #0C1B30);
+  pointer-events: none;
+  z-index: 1;
+}
+
 .home-hero__grain {
   position: absolute;
   inset: 0;
