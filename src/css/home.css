@@ -2,6 +2,14 @@
    COMPANY HOMEPAGE
    ============================================================ */
 
+/* Nav goes white-text over the dark hero, reverts once solid on scroll */
+.page-home .nav:not(.is-solid) .nav__brand          { color: #ffffff; }
+.page-home .nav:not(.is-solid) .nav__link           { color: rgba(255,255,255,0.8); }
+.page-home .nav:not(.is-solid) .nav__link:hover     { color: #ffffff; }
+.page-home .nav:not(.is-solid) .nav__link::after    { background: #ffffff; }
+.page-home .nav:not(.is-solid) .nav__cta            { color: #ffffff; border-color: rgba(255,255,255,0.45); }
+.page-home .nav:not(.is-solid) .nav__cta:hover      { background: #ffffff; color: #0D0F14; }
+
 /* ---- Hero ---- */
 .home-hero {
   position: relative;
