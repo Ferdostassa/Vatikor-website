@@ -226,10 +226,19 @@
 
 /* Change hero alignment: flex-start so title appears at top */
 .eht-page-hero {
+  background-image: url('/assets/images/homepage-heading-bg.png');
+  background-size: cover;
+  background-position: center 68px;
+  background-color: var(--bg);
   align-items: flex-start !important;
   height: auto !important;
   min-height: 0 !important;
 }
+
+/* White text on dark image */
+.eht-page-hero .eht-page-title__eyebrow { color: rgba(255,255,255,0.85); border-color: rgba(255,255,255,0.4); }
+.eht-page-hero .eht-page-title__heading  { color: #ffffff; }
+.eht-page-hero .eht-page-title__sub      { color: rgba(255,255,255,0.65); }
 
 .eht-page-hero .hero__content {
   padding-top: 6.5rem;   /* clear the fixed nav (~66px) + breathing room */

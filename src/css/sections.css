@@ -63,12 +63,20 @@
 
 /* MotIQ hero — matches EHT page-hero layout: compact, top-aligned */
 .motiq-hero {
-  background: var(--bg);
+  background-image: url('/assets/images/homepage-heading-bg.png');
+  background-size: cover;
+  background-position: center 68px;
+  background-color: var(--bg);
   align-items: flex-start !important;
   height: auto !important;
   min-height: 0 !important;
   max-height: none;
 }
+
+/* White text on dark image */
+.motiq-hero .eht-page-title__eyebrow  { color: rgba(255,255,255,0.85); border-color: rgba(255,255,255,0.4); }
+.motiq-hero .eht-page-title__heading  { color: #ffffff; }
+.motiq-hero .eht-page-title__sub      { color: rgba(255,255,255,0.65); }
 
 .motiq-hero .hero__content {
   padding-top: 6.5rem;
