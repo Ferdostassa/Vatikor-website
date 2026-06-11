@@ -88,6 +88,48 @@ function boot() {
     },
   });
 
+  // Typewriter cycling phrases
+  function startTypewriter(el) {
+    const phrases = [
+      'Predictive Insights',
+      'Motor Health Monitoring',
+      'Early Fault Detection',
+      'Thermal Surveillance',
+    ];
+    const TYPING_SPEED = 58;
+    const DELETE_SPEED = 32;
+    const HOLD_TIME    = 2400;
+    const PAUSE_TIME   = 380;
+    let phraseIdx = 0;
+    let charIdx   = 0;
+    let deleting  = false;
+
+    function tick() {
+      const phrase = phrases[phraseIdx];
+      if (!deleting) {
+        el.textContent = phrase.slice(0, charIdx);
+        charIdx++;
+        if (charIdx > phrase.length) {
+          setTimeout(() => { deleting = true; tick(); }, HOLD_TIME);
+          return;
+        }
+        setTimeout(tick, TYPING_SPEED);
+      } else {
+        el.textContent = phrase.slice(0, charIdx);
+        charIdx--;
+        if (charIdx < 0) {
+          deleting  = false;
+          phraseIdx = (phraseIdx + 1) % phrases.length;
+          charIdx   = 0;
+          setTimeout(tick, PAUSE_TIME);
+          return;
+        }
+        setTimeout(tick, DELETE_SPEED);
+      }
+    }
+    tick();
+  }
+
   // Hero animation
   const nav = document.getElementById('nav');
   const heroEyebrow = document.querySelector('[data-hero-eyebrow]');
@@ -98,10 +140,14 @@ function boot() {
   const introTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
   introTl
     .to(heroEyebrow, { opacity: 1, y: 0, duration: 0.8 }, 0.3)
-    .to(heroHeadlineWords, { opacity: 1, y: 0, duration: 0.9, stagger: 0.07 }, 0.6)
-    .to(heroSub, { opacity: 1, y: 0, duration: 0.9 }, 1.1)
-    .to(heroCards, { opacity: 1, y: 0, duration: 0.7, stagger: 0.1 }, 1.4)
-    .add(() => { nav.classList.add('is-visible'); }, 1.0);
+    .to(heroHeadlineWords, { opacity: 1, y: 0, duration: 0.9, stagger: 0.12 }, 0.6)
+    .to(heroSub, { opacity: 1, y: 0, duration: 0.9 }, 1.2)
+    .to(heroCards, { opacity: 1, y: 0, duration: 0.7, stagger: 0.1 }, 1.5)
+    .add(() => { nav.classList.add('is-visible'); }, 1.0)
+    .add(() => {
+      const typedEl = document.getElementById('hero-typed');
+      if (typedEl) startTypewriter(typedEl);
+    }, 1.4);
 
   // Nav solid on scroll
   ScrollTrigger.create({
