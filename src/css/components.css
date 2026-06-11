@@ -16,11 +16,14 @@
   mix-blend-mode: normal;
   pointer-events: none;
 }
-.nav.is-visible { transform: translateY(0); pointer-events: auto; }
-.nav.is-solid {
-  background: rgba(248, 248, 246, 0.85);
+.nav.is-visible {
+  transform: translateY(0);
+  pointer-events: auto;
+  background: rgba(248, 248, 246, 0.92);
   backdrop-filter: blur(18px) saturate(1.2);
   -webkit-backdrop-filter: blur(18px) saturate(1.2);
+}
+.nav.is-solid {
   border-bottom: 1px solid var(--line);
 }
 
