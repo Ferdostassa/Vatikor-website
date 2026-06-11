@@ -78,7 +78,7 @@
   align-items: center;
   gap: 0.1em;
   font-size: clamp(1.6rem, 3.5vw, 2.8rem) !important;
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 .home-word { display: inline-block; }
