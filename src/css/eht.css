@@ -235,10 +235,6 @@
   min-height: 0 !important;
 }
 
-/* White text on dark image */
-.eht-page-hero .eht-page-title__eyebrow { color: rgba(255,255,255,0.85); border-color: rgba(255,255,255,0.4); }
-.eht-page-hero .eht-page-title__heading  { color: #ffffff; }
-.eht-page-hero .eht-page-title__sub      { color: rgba(255,255,255,0.65); }
 
 .eht-page-hero .hero__content {
   padding-top: 6.5rem;   /* clear the fixed nav (~66px) + breathing room */
@@ -266,23 +262,21 @@
 
 .eht-page-title__eyebrow {
   font-family: var(--f-mono);
-  font-size: var(--fs-sm);
-  letter-spacing: 0.08em;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--accent);
-  border: 1.5px solid var(--accent);
-  border-radius: 999px;
-  padding: 0.45rem 1.1rem;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: var(--sp-3);
 }
 
 .eht-page-title__heading {
   font-family: var(--f-display);
-  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
   font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.08;
-  color: var(--ink);
-  max-width: 18ch;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+  color: #ffffff;
+  max-width: 22ch;
   text-align: center;
 }
 
@@ -292,10 +286,10 @@
 }
 
 .eht-page-title__sub {
-  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
-  line-height: 1.6;
-  color: var(--ink-soft);
-  max-width: 52ch;
+  font-size: clamp(0.9rem, 1.3vw, 1.05rem);
+  line-height: 1.65;
+  color: rgba(255,255,255,0.55);
+  max-width: 58ch;
   text-align: center;
 }
 

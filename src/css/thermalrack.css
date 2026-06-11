@@ -17,10 +17,6 @@
   max-height: none;
 }
 
-/* White text on dark image */
-.thermalrack-hero .eht-page-title__eyebrow { color: rgba(255,255,255,0.85); border-color: rgba(255,255,255,0.4); }
-.thermalrack-hero .eht-page-title__heading  { color: #ffffff; }
-.thermalrack-hero__sub                      { color: rgba(255,255,255,0.65); }
 
 .thermalrack-hero .hero__content {
   padding-top: 6.5rem;   /* clear the fixed nav (~66px) + breathing room */
@@ -37,10 +33,10 @@
 
 /* Hero sub — larger than default sub, centred */
 .thermalrack-hero__sub {
-  font-size: clamp(1.25rem, 2vw, 1.65rem);
-  line-height: 1.5;
-  color: var(--ink-soft);
-  max-width: 52ch;
+  font-size: clamp(0.9rem, 1.3vw, 1.05rem);
+  line-height: 1.65;
+  color: rgba(255,255,255,0.55);
+  max-width: 58ch;
   text-align: center;
   margin-top: var(--sp-5);
   font-weight: 400;
