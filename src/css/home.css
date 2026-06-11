@@ -50,6 +50,7 @@
   margin: 0 auto;
   text-align: center;
   padding: clamp(2rem, 4vw, 3.25rem) clamp(1.5rem, 5vw, 4rem);
+  margin-top: 20px;
 }
 
 .home-hero__eyebrow {
