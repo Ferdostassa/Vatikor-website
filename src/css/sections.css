@@ -97,20 +97,6 @@
   position: relative;
   height: 100vh;
   overflow: hidden;
-  background:
-    radial-gradient(ellipse 70% 55% at 50% 44%, rgba(30,58,95,0.05) 0%, transparent 65%),
-    #ffffff;
-}
-
-.reveal__pin::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 800'%3E%3Cpath d='M0,180 C180,180 180,110 360,110 C540,110 540,180 720,180 C900,180 900,250 1080,250 C1260,250 1260,180 1440,180' fill='none' stroke='%231E3A5F' stroke-width='1.8' opacity='0.12'/%3E%3Cpath d='M0,380 C240,380 240,280 480,280 C720,280 720,380 960,380 C1200,380 1200,480 1440,480' fill='none' stroke='%231E3A5F' stroke-width='1.2' opacity='0.08'/%3E%3Cpath d='M0,560 C90,560 90,530 180,530 C270,530 270,560 360,560 C450,560 450,590 540,590 C630,590 630,560 720,560 C810,560 810,530 900,530 C990,530 990,560 1080,560 C1170,560 1170,590 1260,590 C1350,590 1350,560 1440,560' fill='none' stroke='%231E3A5F' stroke-width='0.9' opacity='0.08'/%3E%3Cpath d='M0,680 C360,680 360,460 720,460 C1080,460 1080,680 1440,680' fill='none' stroke='%231E3A5F' stroke-width='0.7' opacity='0.05'/%3E%3Cpath d='M0,90 C360,90 360,320 720,320 C1080,320 1080,90 1440,90' fill='none' stroke='%23E07B2A' stroke-width='1' opacity='0.07'/%3E%3Cpath d='M0,720 C240,720 240,620 480,620 C720,620 720,720 960,720 C1200,720 1200,620 1440,620' fill='none' stroke='%23E07B2A' stroke-width='0.7' opacity='0.05'/%3E%3C/svg%3E");
-  background-size: cover;
-  background-position: center;
-  pointer-events: none;
-  z-index: 0;
 }
 .reveal__header {
   position: absolute;
