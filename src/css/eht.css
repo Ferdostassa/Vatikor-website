@@ -1115,9 +1115,9 @@
 }
 
 .eht-sstat__unit {
-  font-size: 1.1rem;
-  font-weight: 400;
-  color: var(--ink-soft);
+  font-size: inherit;
+  font-weight: 700;
+  color: inherit;
 }
 
 /* Label */
