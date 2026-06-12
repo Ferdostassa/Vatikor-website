@@ -1114,6 +1114,14 @@
   line-height: 1;
 }
 
+.eht-sstat__prefix {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--ink-soft);
+  display: block;
+  letter-spacing: 0;
+}
+
 .eht-sstat__unit {
   font-size: inherit;
   font-weight: 700;
