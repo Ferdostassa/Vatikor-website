@@ -745,9 +745,9 @@
         <h2 class="motiq-screens__title">See Everything.<br><em>In Real Time.</em></h2>
         <p class="motiq-screens__sub">MotIQ's LCD gives operators instant visibility into motor health, power quality, and thermal status, directly from the panel.</p>
       </div>
-      <!-- Three-column row: LCD1 · LCD2 · product image -->
+      <!-- Three-column row: LCD1 · product · LCD2 -->
       <div class="motiq-screens__row container">
-        <div class="motiq-screen-card">
+        <div class="motiq-screen-card motiq-screen-card--left">
           <div class="motiq-screen-card__frame">
             <img src="./assets/LCD1.png" alt="MotIQ LCD: Electrical Metrics" loading="lazy" />
           </div>
@@ -756,7 +756,10 @@
             <span class="motiq-screen-card__desc">Voltage, current, active power, power factor, load balance</span>
           </div>
         </div>
-        <div class="motiq-screen-card">
+        <div class="motiq-screen-card motiq-screen-card--product">
+          <img src="./assets/LCD123.png" alt="MotIQ device" class="motiq-screens__product-img" />
+        </div>
+        <div class="motiq-screen-card motiq-screen-card--right">
           <div class="motiq-screen-card__frame">
             <img src="./assets/LCD2.png" alt="MotIQ LCD: Thermal Diagnostics" loading="lazy" />
           </div>
@@ -764,9 +767,6 @@
             <span class="motiq-screen-card__name">Thermal Diagnostics</span>
             <span class="motiq-screen-card__desc">8x8 thermal map, hotspot detection, temperature trends</span>
           </div>
-        </div>
-        <div class="motiq-screen-card motiq-screen-card--product" aria-hidden="true">
-          <img src="./assets/LCD123.png" alt="MotIQ device" class="motiq-screens__product-img" />
         </div>
       </div>
     </section>
